@@ -34,14 +34,14 @@ header h1 {
 
 main {
     width: 1051px;
-    margin: 77px 195px auto 195px;
+    margin: 146px 195px auto 195px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.createQuizz {
+.create-quizz {
     width: 100%;
     height: 181px;
     border: 1px dashed #D5D5D5;
@@ -51,41 +51,63 @@ main {
     justify-content: center;
     align-items: center;
 }
-.createQuizz h1 {
+.create-quizz h1 {
     width: 250px;
     height: 107px;
-    margin: 7px auto 0 auto;
+    margin: 35px auto 0 auto;
     color: #B9B9B9;
     font-size: 20px;  
     text-align: center;  
 }
-.createQuizz button {
+.create-quizz button {
     width: 151px;
     height: 40px;
     margin: 0 auto 33px auto;
+    background-color: #FAFAFA;
+    font-size: 20px;
+    font-weight: 400;
+    color: #EC362D;
     border: 1px dashed #EC362D;
+    border-radius: 50px;
 }
 
-.allQuizzes {
+.all-quizzes {
     width: 100%;
-    border: 3px dashed crimson;
-}
-.allQuizzes ul {
+    margin: 77px auto 0 auto;
     display: flex;
+    flex-direction: column;
+    border: 1px dotted blue;
+}
+.all-quizzes h1 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+
+}
+.all-quizzes ul {
+    margin: 0 0 auto 0;
+    display: flex;
+<<<<<<< HEAD
     flex-wrap: wrap;
     justify-content: space-around;
+=======
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px dotted green;
+    justify-content: space-between;
+>>>>>>> 496a0ea6cd83618051f31e5b1dadb12b3b75fb76
 }
-.allQuizzes li {
+.all-quizzes li {
     width: 340px;
     height: 181px;
+    margin-bottom: 12px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url("/images/simpsons.png");
     background-size: contain;
     border-radius: 5px;
     display: flex;
-    border: 3px dashed yellow;
 
 }
-.allQuizzes h2 {
+.all-quizzes h2 {
     width: 301px;
     line-height: 22px;
     margin: auto auto 7px auto;
