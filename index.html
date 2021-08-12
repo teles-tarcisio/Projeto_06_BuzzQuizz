@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/desktop_styles01-02.css" />
         <link rel="stylesheet" href="css/desktop_styles03.css" />
-        <link rel="stylesheet" href="css/mobile_styles01.css">
+        <!-- <link rel="stylesheet" href="css/mobile_styles01.css"> -->
 
         <title>BuzzQuizz</title>
     </head>
@@ -31,14 +31,14 @@
             <div class="all-quizzes">
                 <h1> Todos os Quizzes </h1>
                 <ul>
-                    <li onclick="alert('launchResult, scripts02'), launchResult(this)">
+                    <li  onclick="alert('launchQuizz, scripts02'), launchQuizz(this)">
                         <div>
                             <h2>Acerte os personagens corretos dos Simpsons e prove seu amor!</h2>
                         </div>
                         <img src="/images/simpsons.png" alt="sloth">
                     </li>
 
-                    <li onclick="alert('launchQuizz, scripts02'), launchQuizz(this)">
+                    <li onclick="alert('launchResult, scripts02'), launchResult(this)">
                         <div>
                             <h2>O quanto você é de boas?</h2>
                         </div>
@@ -52,7 +52,7 @@
                         <img src="/images/sloth.png" alt="sloth">
                     </li>
 
-                    <li onclick="alert('launchQuizz, scripts02'), launchQuizz(this)">
+                    <li>
                         <div>
                             <h2>O quanto você é de boas?</h2>
                         </div>
@@ -62,51 +62,6 @@
                 </ul>
             </div>
         </main>
-
-<!--         
-        <div class="quiz">
-            <div class="quizTitle">
-                <img src="/images/quiztitleharrypotter.png">
-                <p>O quão Potterhead é você?</p>
-            </div>
-            <ul>
-                <li class="questionTitle">
-                    <p>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</p>
-                </li>
-                <li class="questionAnswer">
-                    <img src="/images/Gatineo.png">
-                    <p>Gatineo</p>
-                </li>
-                <li class="questionAnswer">
-                    <img src="/images/Gatineo.png">
-                    <p>Ratata</p>
-                </li>
-                <li class="questionAnswer">
-                    <img src="/images/Gatineo.png">
-                    <p>Sapo gordo</p>
-                </li>
-                <li class="questionAnswer">
-                    <img src="/images/Gatineo.png">
-                    <p>Mustela putorius (o Furão)</p>
-                </li>
-            </ul>
-        </div>
-        <div class="quiz-result">
-            <div class="quiz-result-title">
-                <h1>88% de acerto: Você é praticamente um aluno de Hogwarts!</h1>
-            </div>
-            <div class="quiz-result-text">
-                <img src="/images/simpsons.png">
-                <p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão
-                    abaixo para usar o vira-tempo e reiniciar este teste.</p>
-            </div>
-        </div>
-        <div class="final-page-options">
-            <button>
-                Reiniciar Quizz
-            </button>
-            <p>Voltar para home</p>
-        </div> -->
 
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

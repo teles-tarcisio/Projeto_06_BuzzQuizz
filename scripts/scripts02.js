@@ -61,7 +61,54 @@ function insertQuizResult() {
             <button>
                 Reiniciar Quizz
             </button>
-            <p>Voltar para home</p>
+            <p onclick="window.location.reload()">Voltar para home</p>
         </div>`;
         return insertResult;
 }
+
+
+/* -----------------------------------------------*/
+function launchSelectedQuizz() {
+    let mainScreen = document.querySelector("main");
+    mainScreen.innerHTML = "";
+
+    let quizID = 1;
+    const quizzPromise = axios.get(`${QUIZZES_URL}` + quizID);
+    quizzPromise.then(launchFriendsQuizz);
+    quizzPromise.catch(console.log);
+}
+
+function launchFriendsQuizz(response) {
+    let mainScreen = document.querySelector("main");
+    mainScreen.innerHTML += `
+    <div class="quiz">
+        <div class="quizTitle">
+            <img src="${response.data.image}">
+            <p>${response.data.title}</p>
+        </div>
+        <ul>
+            <li class="questionTitle">
+                <p>${response.data.questions[0].title}</p>
+            </li>
+            <li class="questionAnswer">
+                <img src="${response.data.questions[0].answers[0].image}">
+                <p>${response.data.questions[0].answers[0].text}</p>
+            </li>
+            <li class="questionAnswer">
+                <img src="${response.data.questions[0].answers[1].image}">
+                <p>${response.data.questions[0].answers[1].text}</p>
+            </li>
+            <li class="questionAnswer">
+                <img src="${response.data.questions[0].answers[2].image}">
+                <p>${response.data.questions[0].answers[2].text}</p>
+            </li>
+            <li class="questionAnswer">
+                <img src="${response.data.questions[0].answers[3].image}">
+                <p>${response.data.questions[0].answers[3].text}</p>
+            </li>
+        </ul>
+    </div>`;
+    console.log("finished response.data.questions array");
+}
+
+/* -----------------------------------------------*/
