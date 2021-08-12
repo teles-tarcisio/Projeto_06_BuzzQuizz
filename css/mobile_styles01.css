@@ -1,5 +1,5 @@
-@media (max-width: 1100px){
-    main{
+@media (max-width:420px) {
+    main {
         width: 380px;
     }
     .all-quizzes ul {
