@@ -79,6 +79,7 @@ function launchSelectedQuizz() {
 }
 
 function launchFriendsQuizz(response) {
+    //quiz banner @ page top:
     let quizzBanner = document.querySelector(".quizz-banner");
     quizzBanner.innerHTML = '';
     quizzBanner.innerHTML += `
@@ -86,10 +87,8 @@ function launchFriendsQuizz(response) {
             <img src="${response.data.image}">
             <p>${response.data.title}</p>
         </div>`;
-    
-    let mainScreen = document.querySelector("main");
-    // loop aqui posteriormente pra generalizar
 
+<<<<<<< HEAD
     let howManyQuestions = response.data.questions.length;
     for (i = 0; i < howManyQuestions; i++) {
         mainScreen.innerHTML += `
@@ -148,7 +147,58 @@ function launchFriendsQuizz(response) {
             </li>
         </ul>
     </div>`;
+=======
+    /* estrutura tela das questões do quiz:
+    <main>
+        <ul externa> -> lista dos cards com as perguntas
+            <li card 01> -> card correspondente a uma pergunta
+                <ul interna> -> lista dos elementos que compoem UM card de pergunta
+                    <li pergunta01>
+                    </li pergunta01>
+
+                    <li alternativa 01>
+                        img alternativa 01
+                        texto alternativa 01
+                    </li alternativa 01>
+
+                    <li alternativa 02>
+                        img alternativa 02
+                        texto alternativa 02
+                    </li alternativa 02>
+                    .
+                    ..
+                    ...
+                </ul interna> -> fecha elementos em UM card de pergunta
+            </li card 01> -> fecha o UM card da pergunta
+
+            <li card 02> -> card correspondente a uma pergunta
+                <ul interna> -> lista dos elementos que compoem UM card de pergunta
+                    <li pergunta02>
+                    </li pergunta02>
+
+                    <li alternativa 01>
+                        img alternativa 01
+                        texto alternativa 01
+                    </li alternativa 01>
+
+                    <li alternativa 02>
+                        img alternativa 02
+                        texto alternativa 02
+                    </li alternativa 02>
+                    .
+                    ..
+                    ...
+                </ul interna> -> fecha elementos em UM card de pergunta
+            </li card 02> -> fecha o UM card da pergunta
+
+            .
+            ..
+            ...
+        </ul ext> -> fecha a lista com todos os cards das perguntas
+    </main>    
+>>>>>>> e717e4e (redoing single quiz screen (list inside list))
     */
+
     console.log("finished response.data.questions array");
 }
 
