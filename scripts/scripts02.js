@@ -89,6 +89,24 @@ function launchFriendsQuizz(response) {
     
     let mainScreen = document.querySelector("main");
     // loop aqui posteriormente pra generalizar
+
+    let howManyQuestions = response.data.questions.length;
+    for (i = 0; i < howManyQuestions; i++) {
+        mainScreen.innerHTML += `
+        <div class="quiz">
+            <ul>${i}</ul>
+        </div>`;
+    }
+
+    let questionsList = mainScreen.querySelectorAll("ul");
+    for (j = 0; j < questionsList.length; j++) {
+        questionsList[j].innerHTML = `
+        <li class="question-title">
+            <p>titulo${j}</p>
+        </li>`;
+    }
+
+    /*
     mainScreen.innerHTML += `
     <div class="quiz">
         <ul>
@@ -113,6 +131,7 @@ function launchFriendsQuizz(response) {
             </li>
         </ul>
     </div>`;
+    */
     console.log("finished response.data.questions array");
 }
 
