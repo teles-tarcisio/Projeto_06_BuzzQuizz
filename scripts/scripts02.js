@@ -102,7 +102,23 @@ function launchFriendsQuizz(response) {
     for (j = 0; j < questionsList.length; j++) {
         questionsList[j].innerHTML = `
         <li class="question-title">
-            <p>titulo${j}</p>
+            <p>${response.data.questions[j].title}</p>
+        </li>
+        <li class="question-answer">
+            <img src="${response.data.questions[j].answers[0].image}">
+            <p>${response.data.questions[j].answers[0].text}</p>
+        </li>
+        <li class="question-answer">
+            <img src="${response.data.questions[j].answers[1].image}">
+            <p>${response.data.questions[j].answers[1].text}</p>
+        </li>
+        <li class="question-answer">
+            <img src="${response.data.questions[j].answers[2].image}">
+            <p>${response.data.questions[j].answers[2].text}</p>
+        </li>
+        <li class="question-answer">
+            <img src="${response.data.questions[j].answers[3].image}">
+            <p>${response.data.questions[j].answers[3].text}</p>
         </li>`;
     }
 
