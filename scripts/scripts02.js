@@ -79,30 +79,35 @@ function launchSelectedQuizz() {
 }
 
 function launchFriendsQuizz(response) {
-    let mainScreen = document.querySelector("main");
-    mainScreen.innerHTML += `
-    <div class="quiz">
-        <div class="quizTitle">
+    let quizzBanner = document.querySelector(".quizz-banner");
+    quizzBanner.innerHTML = '';
+    quizzBanner.innerHTML += `
+        <div class="quiz-title">
             <img src="${response.data.image}">
             <p>${response.data.title}</p>
-        </div>
+        </div>`;
+    
+    let mainScreen = document.querySelector("main");
+    // loop aqui posteriormente pra generalizar
+    mainScreen.innerHTML += `
+    <div class="quiz">
         <ul>
-            <li class="questionTitle">
+            <li class="question-title">
                 <p>${response.data.questions[0].title}</p>
             </li>
-            <li class="questionAnswer">
+            <li class="question-answer">
                 <img src="${response.data.questions[0].answers[0].image}">
                 <p>${response.data.questions[0].answers[0].text}</p>
             </li>
-            <li class="questionAnswer">
+            <li class="question-answer">
                 <img src="${response.data.questions[0].answers[1].image}">
                 <p>${response.data.questions[0].answers[1].text}</p>
             </li>
-            <li class="questionAnswer">
+            <li class="question-answer">
                 <img src="${response.data.questions[0].answers[2].image}">
                 <p>${response.data.questions[0].answers[2].text}</p>
             </li>
-            <li class="questionAnswer">
+            <li class="question-answer">
                 <img src="${response.data.questions[0].answers[3].image}">
                 <p>${response.data.questions[0].answers[3].text}</p>
             </li>

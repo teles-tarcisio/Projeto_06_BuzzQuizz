@@ -1,9 +1,11 @@
 .quiz-title{
-    position: relative;
-    margin-top: 69px;
+    position: absolute;
+    top: 70px;
+    left:  20%;
 }
 .quiz-title img{
     width: 100%;
+    height: 300px;
 }
 .quiz-title p{
     position: absolute;
@@ -14,10 +16,12 @@
 }
 
 .quiz ul{
-    width: 750px;
-    height: 670px;
+    padding: 30px;
+    width: 760px;
+    height: 676px;
     margin: 42px auto 0 auto;
     background-color: #FFFFFF;
+    background-color: green;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -25,7 +29,7 @@
     padding: 30px;
 }
 .question-title{
-    width: 690px;
+    width: 100%;
     height: 138px;
     background-color: #434CA0;
     display: flex;
@@ -43,6 +47,12 @@
     font-size: 23px;
 }
 .question-answer p{
+    font-weight: 700;
+    font-size: 20px;
+}
+.question-answer img{
+    width: 332px;
+    height: 175px;
     font-weight: 700;
     font-size: 20px;
 }
