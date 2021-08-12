@@ -97,6 +97,7 @@ function launchFriendsQuizz(response) {
             <ul>${i}</ul>
         </div>`;
     }
+    
 
     let questionsList = mainScreen.querySelectorAll("ul");
     for (j = 0; j < questionsList.length; j++) {

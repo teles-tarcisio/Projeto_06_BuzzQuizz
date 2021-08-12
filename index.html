@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/desktop_styles01.css" />
         <link rel="stylesheet" href="css/desktop_styles02-03.css" />
-        <link rel="stylesheet" href="css/Desktop_styles08.css">
+        <link rel="stylesheet" href="css/Desktop_styles08-10.css">
         <!-- <link rel="stylesheet" href="css/mobile_styles01.css"> -->
 
         <title>BuzzQuizz</title>
@@ -26,7 +26,7 @@
         <div class="quizz-banner"> 
         </div>
 
-        <main>
+        <main class="hidden">
             <div class="create-quizz">
                 <h1> Você não criou nenhum quizz ainda :( </h1>
                 <button onclick="alert('clicked createQuizz')"> Criar Quizz </button>
@@ -82,8 +82,8 @@
 
 
 
-<!-- layout para criar o quizz
-            <div class="new-quiz">
+<!-- layout para criar o quizz  -->
+            <div class="new-quiz first-page">
                 <h1>
                     Comece pelo começo
                 </h1>
@@ -96,8 +96,46 @@
                 <button>
                     Prosseguir para criar perguntas
                 </button>
-            </div> -->
+            </div>
 
+            <div class="new-quiz second-page">
+                <h1>
+                    Crie suas perguntas
+                </h1>
+                <div>
+                    <h2>Pergunta 1</h2>
+                    <input type="text" placeholder="Texto da pergunta">
+                    <input type="text" placeholder="Cor de fundo da pergunta">
+                    <h2>Resposta correta</h2>
+                    <input type="text" placeholder="Resposta correta">
+                    <input type="text" placeholder="URL da imagem">
+                    <h2>Resposta incorretas</h2>
+                    <input type="text" placeholder="Resposta incorreta 1">
+                    <input type="text" placeholder="URL da imagem 1">
+                    <input type="text" placeholder="Resposta incorreta 2">
+                    <input type="text" placeholder="URL da imagem 2">
+                    <input type="text" placeholder="Resposta incorreta 3">
+                    <input type="text" placeholder="URL da imagem 3">
+                </div>
+                <div>
+                    <h2>Pergunta 2</h2>
+                    <input type="text" placeholder="Texto da pergunta">
+                    <input type="text" placeholder="Cor de fundo da pergunta">
+                    <h2>Resposta correta</h2>
+                    <input type="text" placeholder="Resposta correta">
+                    <input type="text" placeholder="URL da imagem">
+                    <h2>Resposta incorretas</h2>
+                    <input type="text" placeholder="Resposta incorreta 1">
+                    <input type="text" placeholder="URL da imagem 1">
+                    <input type="text" placeholder="Resposta incorreta 2">
+                    <input type="text" placeholder="URL da imagem 2">
+                    <input type="text" placeholder="Resposta incorreta 3">
+                    <input type="text" placeholder="URL da imagem 3">
+                </div>
+                <button>
+                    Prosseguir para criar níveis
+                </button>
+            </div>
 
 
 
