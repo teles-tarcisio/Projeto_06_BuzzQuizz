@@ -108,10 +108,28 @@ function createCardSlots(response) {
         newCardSlot = document.createElement("li");
         newCardSlot.className = `card-slot${i}`;
 
+        document.querySelector("ul.question-cards-list").innerHTML += "\n";
         document.querySelector("ul.question-cards-list").appendChild(newCardSlot);
         document.querySelector("ul.question-cards-list").innerHTML += "\n";
     }
     console.log("created some li_card-slot 's\n", document.querySelector("main").innerHTML);
+
+    createCardFrameElements(response);
+}
+
+function createCardFrameElements(response) {
+    //each li_card-slot has one question and multiple answers:
+    let numberOfQuestions = response.data.questions.length;
+    
+    let listOfCardSlots = document.querySelectorAll(".question-cards-list li");
+    for (i = 0; i < numberOfQuestions; i++) {
+        let newFrameQuestion = document.createElement("li");
+        newFrameQuestion.className = `question${i}`;
+        listOfCardSlots[i].innerHTML += "\n";
+        listOfCardSlots[i].appendChild(newFrameQuestion);
+        listOfCardSlots[i].innerHTML += "\n";    
+    }
+    console.log("created some elements inside cards\n", document.querySelector("main").innerHTML);
 }
 
 
