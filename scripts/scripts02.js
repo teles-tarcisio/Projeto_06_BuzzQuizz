@@ -89,56 +89,36 @@ function launchFriendsQuizz(response) {
         </div>`;
 
     let mainScreen = document.querySelector("main");
-    mainScreen.innerHTML += `
-    <ul class="question-cards-list">
-    </ul>`;
+    
+    let newListOfCards = document.createElement("ul");
+    newListOfCards.className = "question-cards-list";
+    mainScreen.appendChild(newListOfCards);
+    console.log("created ul_list-of-cards:\n", mainScreen.innerHTML);
+    createCardSlots(response);
+}
 
-    //-----
-    let questionsArray = response.data.questions;
-    console.log("qArray: ", questionsArray);
-    let numberOfQuestions = questionsArray.length;
-    console.log("# of questions: ", numberOfQuestions);
-    //-----
-
-    let listOfQuestions = mainScreen.querySelector(".question-cards-list");
+function createCardSlots(response) {
+    //number of card slots needed:
+    let numberOfQuestions = response.data.questions.length;
+    console.log(response.data.questions, "\n# of questions: ", numberOfQuestions);
+    
+    let newCardSlot;
+    //create # of card slots needed:
     for (i = 0; i < numberOfQuestions; i++) {
-        listOfQuestions.innerHTML += `
-        <li class="question-card-${i}">
-            <ul class="card-content">
-            `;
+        newCardSlot = document.createElement("li");
+        newCardSlot.className = `card-slot${i}`;
+
+        document.querySelector("ul.question-cards-list").appendChild(newCardSlot);
+        document.querySelector("ul.question-cards-list").innerHTML += "\n";
     }
-    console.log(listOfQuestions.innerHTML);
-
-    let singleQuestionSlot = listOfQuestions.querySelector(".card-content");
-    //inside the card: one question + up to 4 alternatives
-    for (j = 0; j < numberOfQuestions; j++) {
-        let numberOfSubElements = response.data.questions[j].answers.length;
-        console.log("inside the card: ", numberOfSubElements);
-        //listOfQuestions.innerHTML += `<li class="question-${j}"> -pergunta${j} aqui- `;       
-         singleQuestionSlot.innerHTML += `<li class="question-${j}"> -pergunta${j} aqui- `;
-        
-        for (k = 0; k < numberOfSubElements; k++) {
-            //listOfQuestions.innerHTML += `
-            singleQuestionSlot.innerHTML += `
-            <li class="answer-${k}">
-                img_${j}${k}
-                text_${j}${k}
-            </li>`;
-        }
-
-        //listOfQuestions.innerHTML += `
-        singleQuestionSlot.innerHTML += `
-        </li>`;
-    }
-
-    for (i = 0; i < numberOfQuestions; i++) {
-        listOfQuestions.innerHTML += `
-            </ul>        
-        </li>`;
-    }
+    console.log("created some li_card-slot 's\n", document.querySelector("main").innerHTML);
+}
 
 
-    /* estrutura tela das questões do quiz:
+
+
+
+/* estrutura tela das questões do quiz:
     <main>
         <ul externa> -> lista dos cards com as perguntas
             <li card 01> -> card correspondente a uma pergunta
@@ -187,8 +167,4 @@ function launchFriendsQuizz(response) {
         </ul ext> -> fecha a lista com todos os cards das perguntas
     </main>    
     */
-
-    console.log("finished response.data.questions array");
-}
-
 /* -----------------------------------------------*/
