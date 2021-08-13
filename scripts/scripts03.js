@@ -1,4 +1,4 @@
-// esquema da variavel para enviar no post
+// esquema da variavel para enviar no post(rascunho)
 //let CreatedQuiz = {
 //     title,
 //     image,
@@ -27,7 +27,7 @@ function createQuizPage(){
                                 Comece pelo começo
                             </h1>
                             <div>
-                            <input type="text" placeholder="Título do seu quizz">
+                            <input class="quiz-title-input" type="text" placeholder="Título do seu quizz">
                             <input type="text" placeholder="URL da imagem do seu quizz">
                             <input type="text" placeholder="Quantidade de perguntas do quizz">
                             <input type="text" placeholder="Quantidade de níveis do quizz">
@@ -38,14 +38,15 @@ function createQuizPage(){
                         </div>`;
 } 
 // funcao para salvar dados na variavel antes de envia-la(rascunho)
-//function saveInfoFirstPage(){
-//     title:<input type="text" placeholder="Título do seu quizz">.value
+function saveInfoFirstPage(){
+        let title= document.querySelector(".quiz-title-input").value;
+        console.log(title);
 //     image:<input type="text" placeholder="URL da imagem do seu quizz">.value
 //     questions.length:<input type="text" placeholder="Quantidade de perguntas do quizz">.value
 //     levels.length:<input type="text" placeholder="Quantidade de níveis do quizz">.value
-// }
+ }
 function showSecondPage(){
-//    saveInfoFirstPage;
+    saveInfoFirstPage();
     let quizpage = document.querySelector(".new-quiz");
     quizpage.classList.add("second-page");
     quizpage.classList.remove("first-page");
