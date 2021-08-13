@@ -122,67 +122,38 @@ function createCardFrameElements(response) {
     let numberOfQuestions = response.data.questions.length;
     
     let listOfCardSlots = document.querySelectorAll(".question-cards-list li");
+    
+    //adding the question inside the frame:
     for (i = 0; i < numberOfQuestions; i++) {
         let newFrameQuestion = document.createElement("li");
         newFrameQuestion.className = `question${i}`;
         listOfCardSlots[i].innerHTML += "\n";
         listOfCardSlots[i].appendChild(newFrameQuestion);
+    }
+    console.log(document.querySelector("main").innerHTML);
+    console.log("added question inside each card frame");
+    
+    //adding ONE img answer inside the frame:
+    for (i = 0; i < numberOfQuestions; i++) {
+        let newFrameImg = document.createElement("img");
+        newFrameImg.className = `image${i}`;
+        listOfCardSlots[i].innerHTML += "\n";
+        listOfCardSlots[i].appendChild(newFrameImg);
         listOfCardSlots[i].innerHTML += "\n";    
     }
-    console.log("created some elements inside cards\n", document.querySelector("main").innerHTML);
+    console.log(document.querySelector("main").innerHTML);
+    console.log("added one img inside each card frame");
+
+
+
+    //adding ONE text answer inside the frame:
+    for (i = 0; i < numberOfQuestions; i++) {
+        let newFrameTxt = document.createElement("p");
+        newFrameTxt.className = `answer-text${i}`;
+        listOfCardSlots[i].innerHTML += "\n";
+        listOfCardSlots[i].appendChild(newFrameTxt);
+        listOfCardSlots[i].innerHTML += "\n";    
+    }
+    console.log(document.querySelector("main").innerHTML);
+    console.log("added one answer-text inside each card frame");
 }
-
-
-
-
-
-/* estrutura tela das questões do quiz:
-    <main>
-        <ul externa> -> lista dos cards com as perguntas
-            <li card 01> -> card correspondente a uma pergunta
-                <ul interna> -> lista dos elementos que compoem UM card de pergunta
-                    <li pergunta01>
-                    </li pergunta01>
-
-                    <li alternativa 01>
-                        img alternativa 01
-                        texto alternativa 01
-                    </li alternativa 01>
-
-                    <li alternativa 02>
-                        img alternativa 02
-                        texto alternativa 02
-                    </li alternativa 02>
-                    .
-                    ..
-                    ...
-                </ul interna> -> fecha elementos em UM card de pergunta
-            </li card 01> -> fecha o UM card da pergunta
-
-            <li card 02> -> card correspondente a uma pergunta
-                <ul interna> -> lista dos elementos que compoem UM card de pergunta
-                    <li pergunta02>
-                    </li pergunta02>
-
-                    <li alternativa 01>
-                        img alternativa 01
-                        texto alternativa 01
-                    </li alternativa 01>
-
-                    <li alternativa 02>
-                        img alternativa 02
-                        texto alternativa 02
-                    </li alternativa 02>
-                    .
-                    ..
-                    ...
-                </ul interna> -> fecha elementos em UM card de pergunta
-            </li card 02> -> fecha o UM card da pergunta
-
-            .
-            ..
-            ...
-        </ul ext> -> fecha a lista com todos os cards das perguntas
-    </main>    
-    */
-/* -----------------------------------------------*/
