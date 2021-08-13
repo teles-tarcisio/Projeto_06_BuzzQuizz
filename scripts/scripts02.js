@@ -88,66 +88,56 @@ function launchFriendsQuizz(response) {
             <p>${response.data.title}</p>
         </div>`;
 
-<<<<<<< HEAD
-    let howManyQuestions = response.data.questions.length;
-    for (i = 0; i < howManyQuestions; i++) {
-        mainScreen.innerHTML += `
-        <div class="quiz">
-            <ul>${i}</ul>
-        </div>`;
-    }
-    
+    let mainScreen = document.querySelector("main");
+    mainScreen.innerHTML += `
+    <ul class="question-cards-list">
+    </ul>`;
 
-    let questionsList = mainScreen.querySelectorAll("ul");
-    for (j = 0; j < questionsList.length; j++) {
-        questionsList[j].innerHTML = `
-        <li class="question-title">
-            <p>${response.data.questions[j].title}</p>
-        </li>
-        <li class="question-answer">
-            <img src="${response.data.questions[j].answers[0].image}">
-            <p>${response.data.questions[j].answers[0].text}</p>
-        </li>
-        <li class="question-answer">
-            <img src="${response.data.questions[j].answers[1].image}">
-            <p>${response.data.questions[j].answers[1].text}</p>
-        </li>
-        <li class="question-answer">
-            <img src="${response.data.questions[j].answers[2].image}">
-            <p>${response.data.questions[j].answers[2].text}</p>
-        </li>
-        <li class="question-answer">
-            <img src="${response.data.questions[j].answers[3].image}">
-            <p>${response.data.questions[j].answers[3].text}</p>
+    //-----
+    let questionsArray = response.data.questions;
+    console.log("qArray: ", questionsArray);
+    let numberOfQuestions = questionsArray.length;
+    console.log("# of questions: ", numberOfQuestions);
+    //-----
+
+    let listOfQuestions = mainScreen.querySelector(".question-cards-list");
+    for (i = 0; i < numberOfQuestions; i++) {
+        listOfQuestions.innerHTML += `
+        <li class="question-card-${i}">
+            <ul class="card-content">
+            `;
+    }
+    console.log(listOfQuestions.innerHTML);
+
+    let singleQuestionSlot = listOfQuestions.querySelector(".card-content");
+    //inside the card: one question + up to 4 alternatives
+    for (j = 0; j < numberOfQuestions; j++) {
+        let numberOfSubElements = response.data.questions[j].answers.length;
+        console.log("inside the card: ", numberOfSubElements);
+        //listOfQuestions.innerHTML += `<li class="question-${j}"> -pergunta${j} aqui- `;       
+         singleQuestionSlot.innerHTML += `<li class="question-${j}"> -pergunta${j} aqui- `;
+        
+        for (k = 0; k < numberOfSubElements; k++) {
+            //listOfQuestions.innerHTML += `
+            singleQuestionSlot.innerHTML += `
+            <li class="answer-${k}">
+                img_${j}${k}
+                text_${j}${k}
+            </li>`;
+        }
+
+        //listOfQuestions.innerHTML += `
+        singleQuestionSlot.innerHTML += `
         </li>`;
     }
 
-    /*
-    mainScreen.innerHTML += `
-    <div class="quiz">
-        <ul>
-            <li class="question-title">
-                <p>${response.data.questions[0].title}</p>
-            </li>
-            <li class="question-answer">
-                <img src="${response.data.questions[0].answers[0].image}">
-                <p>${response.data.questions[0].answers[0].text}</p>
-            </li>
-            <li class="question-answer">
-                <img src="${response.data.questions[0].answers[1].image}">
-                <p>${response.data.questions[0].answers[1].text}</p>
-            </li>
-            <li class="question-answer">
-                <img src="${response.data.questions[0].answers[2].image}">
-                <p>${response.data.questions[0].answers[2].text}</p>
-            </li>
-            <li class="question-answer">
-                <img src="${response.data.questions[0].answers[3].image}">
-                <p>${response.data.questions[0].answers[3].text}</p>
-            </li>
-        </ul>
-    </div>`;
-=======
+    for (i = 0; i < numberOfQuestions; i++) {
+        listOfQuestions.innerHTML += `
+            </ul>        
+        </li>`;
+    }
+
+
     /* estrutura tela das questões do quiz:
     <main>
         <ul externa> -> lista dos cards com as perguntas
@@ -196,7 +186,6 @@ function launchFriendsQuizz(response) {
             ...
         </ul ext> -> fecha a lista com todos os cards das perguntas
     </main>    
->>>>>>> e717e4e (redoing single quiz screen (list inside list))
     */
 
     console.log("finished response.data.questions array");
