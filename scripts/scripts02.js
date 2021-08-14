@@ -152,15 +152,14 @@ function createAnswersInEachQuestion(localQuizz) {
             let newListItem = document.createElement("li");
             newListItem.className = `answer`;
 
-            let newAnswerText = document.createElement("p");
-            newAnswerText.className = `text`;
-            newAnswerText.innerHTML = localQuizz.questions[i].answers[j].text;
-            newListItem.appendChild(newAnswerText);
-
             let newAnswerImage = document.createElement("img");
             newAnswerImage.setAttribute("src", localQuizz.questions[i].answers[j].image);
             newListItem.appendChild(newAnswerImage);
 
+            let newAnswerText = document.createElement("p");
+            newAnswerText.className = `text`;
+            newAnswerText.innerHTML = localQuizz.questions[i].answers[j].text;
+            newListItem.appendChild(newAnswerText);
 
             listInsideCard[i].appendChild(newListItem);
             listInsideCard[i].innerHTML += "\n";
