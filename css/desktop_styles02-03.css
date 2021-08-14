@@ -20,7 +20,7 @@
     margin-top: 140px;
 }
 
-.quiz ul{
+.question-cards-list .card-slot {
     padding: 30px;
     width: 760px;
     height: 676px;
@@ -33,7 +33,7 @@
     align-items: center;
     padding: 30px;
 }
-.question-title{
+.question_title {
     width: 100%;
     height: 138px;
     background-color: #434CA0;
@@ -46,16 +46,16 @@
     color:#FFFFFF;
     font-size: 39px;
 }
-.question-title p{
+.question_title {
     font-weight: 700;
     color:#FFFFFF;
     font-size: 23px;
 }
-.question-answer p{
+.answer .text{
     font-weight: 700;
     font-size: 20px;
 }
-.question-answer img{
+.answer img{
     width: 332px;
     height: 175px;
     font-weight: 700;

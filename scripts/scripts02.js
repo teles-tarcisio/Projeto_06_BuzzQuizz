@@ -106,11 +106,11 @@ function createCardSlots(localQuizz) {
 
     for (i = 0; i < numberOfQuestions; i++) {
         let newListItem = document.createElement("li");
-        newListItem.className = `card-slot${i}`;
+        newListItem.className = `card-slot`;
         newListItem.innerHTML += "\n";
 
         let newInnerUL = document.createElement("ul");
-        newInnerUL.className = `question${i}`;
+        newInnerUL.className = `question`;
         newInnerUL.innerHTML += "\n";
 
         newListItem.appendChild(newInnerUL);
@@ -129,7 +129,7 @@ function createQuestionInCardSlots(localQuizz) {
     //adding the question inside the frame:
     for (i = 0; i < numberOfQuestions; i++) {
         let newListItem = document.createElement("li");
-        newListItem.className = `question${i}_title`;
+        newListItem.className = `question_title`;
         newListItem.innerHTML = localQuizz.questions[i].title;
         listInsideCard[i].appendChild(newListItem);
         listInsideCard[i].innerHTML += "\n";
@@ -149,10 +149,10 @@ function createAnswersInEachQuestion(localQuizz) {
         let numberOfAnswers = localQuizz.questions[i].answers.length;
         for (j = 0; j < numberOfAnswers; j++) {
             let newListItem = document.createElement("li");
-            newListItem.className = `answer${i}${j}`;
+            newListItem.className = `answer`;
 
             let newAnswerText = document.createElement("p");
-            newAnswerText.className = `text${i}${j}`;
+            newAnswerText.className = `text`;
             newAnswerText.innerHTML = localQuizz.questions[i].answers[j].text;
             newListItem.appendChild(newAnswerText);
 
