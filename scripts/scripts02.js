@@ -82,10 +82,8 @@ function printQuizzBanner(localQuizz) {
     let quizzBanner = document.querySelector(".quizz-banner");
     quizzBanner.innerHTML = '';
     quizzBanner.innerHTML += `
-        <div class="quiz-title">
             <img src="${localQuizz.image}">
-            <p>${localQuizz.title}</p>
-        </div>`;
+            <p>${localQuizz.title}</p>`;
     console.log("printed quizz banner at the top?");
 }
 
@@ -129,7 +127,7 @@ function createQuestionInCardSlots(localQuizz) {
     //adding the question inside the frame:
     for (i = 0; i < numberOfQuestions; i++) {
         let newListItem = document.createElement("li");
-        newListItem.className = `question_title`;
+        newListItem.className = `question-title`;
         newListItem.style.backgroundColor = localQuizz.questions[i].color;
         newListItem.innerHTML = localQuizz.questions[i].title;
         listInsideCard[i].appendChild(newListItem);
