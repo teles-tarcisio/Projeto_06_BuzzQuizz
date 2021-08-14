@@ -130,6 +130,7 @@ function createQuestionInCardSlots(localQuizz) {
     for (i = 0; i < numberOfQuestions; i++) {
         let newListItem = document.createElement("li");
         newListItem.className = `question_title`;
+        newListItem.style.backgroundColor = localQuizz.questions[i].color;
         newListItem.innerHTML = localQuizz.questions[i].title;
         listInsideCard[i].appendChild(newListItem);
         listInsideCard[i].innerHTML += "\n";

@@ -20,7 +20,7 @@
     margin-top: 140px;
 }
 
-.question-cards-list .card-slot {
+li.card-slot {
     padding: 30px;
     width: 760px;
     height: 676px;
@@ -29,7 +29,7 @@
     background-color: green;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 30px;
 }
