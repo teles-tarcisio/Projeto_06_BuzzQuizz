@@ -2,12 +2,12 @@
 let createdQuiz = new Object;
 createdQuiz.title='';
 createdQuiz.image='';
-createdQuiz.questions= new Object;
+createdQuiz.questions= [new Object];
 createdQuiz.levels= new Object;
 
 createdQuiz.questions.title="";
 createdQuiz.questions.color="";
-createdQuiz.questions.answer= new Object;
+createdQuiz.questions.answer= [new Object];
 
 createdQuiz.questions.answer.title="";
 createdQuiz.questions.answer.image="";
@@ -37,12 +37,13 @@ function createQuizPage(){
                         </div>`;
 } 
 // funcao para salvar dados na variavel antes de envia-la(rascunho)
+let questionsLength;
 function saveFirstPageInfo(){
     createdQuiz.title = document.querySelector("input:first-child").value;
     console.log(createdQuiz.title)
     createdQuiz.image = document.querySelector("input:nth-child(2)").value;
     console.log(createdQuiz.image)
-    let questionsLength=Number(document.querySelector("input:nth-child(3)").value);
+    questionsLength=Number(document.querySelector("input:nth-child(3)").value);
     console.log(questionsLength)
     let levelsLength=Number(document.querySelector("input:nth-child(4)").value);
     console.log(levelsLength)
@@ -51,14 +52,14 @@ function saveFirstPageInfo(){
     let quizpage = document.querySelector(".new-quiz");
     quizpage.classList.add("second-page");
     quizpage.classList.remove("first-page");
-    quizpage.innerHTML = "";
-    quizpage.innerHTML += `<h1>
-                                Crie suas perguntas
-                            </h1>
-                            <div>
-                                <h2>Pergunta 1</h2>
+    quizpage.innerHTML = `<h1>
+                            Crie suas perguntas
+                        </h1>`
+    for(let i=0; i<questionsLength ;i++){
+    quizpage.innerHTML += `<div>
+                                <h2>Pergunta ${i+1}</h2>
                                 <input type="text" placeholder="Texto da pergunta">
-                                <input type="text" placeholder="Cor de fundo da pergunta">
+                                <input type="color" placeholder="Cor de fundo da pergunta">
                                 <h2>Resposta correta</h2>
                                 <input type="text" placeholder="Resposta correta">
                                 <input type="text" placeholder="URL da imagem">
@@ -69,23 +70,11 @@ function saveFirstPageInfo(){
                                 <input type="text" placeholder="URL da imagem 2">
                                 <input type="text" placeholder="Resposta incorreta 3">
                                 <input type="text" placeholder="URL da imagem 3">
-                            </div>
-                            <div>
-                                <h2>Pergunta 2</h2>
-                                <input type="text" placeholder="Texto da pergunta">
-                                <input type="text" placeholder="Cor de fundo da pergunta">
-                                <h2>Resposta correta</h2>
-                                <input type="text" placeholder="Resposta correta">
-                                <input type="text" placeholder="URL da imagem">
-                                <h2>Resposta incorretas</h2>
-                                <input type="text" placeholder="Resposta incorreta 1">
-                                <input type="text" placeholder="URL da imagem 1">
-                                <input type="text" placeholder="Resposta incorreta 2">
-                                <input type="text" placeholder="URL da imagem 2">
-                                <input type="text" placeholder="Resposta incorreta 3">
-                                <input type="text" placeholder="URL da imagem 3">
-                            </div>
-                            <button onclick="saveSecondPageInfo(),showThirdPage()">
+                            </div>`
+                            
+    }
+    console.log(createdQuiz);
+    quizpage.innerHTML += `<button onclick="saveSecondPageInfo(),showThirdPage()">
                                 Prosseguir para criar níveis
                             </button>`
 }
@@ -109,5 +98,19 @@ function showThirdPage(){
                         </button>`
 }
 function saveSecondPageInfo(){
-    console.log("ta indo")  
+    let inputs = Array.from(document.querySelectorAll("input"));
+    createdQuiz.questions[0].title = inputs[0].value;
+    createdQuiz.questions[0].color = inputs[1].value;
+    for(let cont=0;cont<3;cont++){
+    createdQuiz.questions[0].answer[cont].title = inputs[2].value;
+    createdQuiz.questions[0].answer[cont].image = inputs[3].value;
+    }
+}
+function saveOneQuestionInfo(inputs){
+    createdQuiz.questions[0].title = inputs[0].value;
+    createdQuiz.questions[0].color = inputs[1].value;
+    for(let cont=0;cont<3;cont++){
+    createdQuiz.questions[0].answer[cont].title = inputs[2+cont*2].value;
+    createdQuiz.questions[0].answer[cont].image = inputs[3+cont*2].value;
+    }
 }

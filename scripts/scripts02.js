@@ -34,7 +34,7 @@ function insertSelectedQuizz() {
                 </li>
             </ul>
         </div>`;
-        return insertQuiz;
+    return insertQuiz;
 }
 
 
@@ -63,7 +63,7 @@ function insertQuizResult() {
             </button>
             <p onclick="window.location.reload()">Voltar para home</p>
         </div>`;
-        return insertResult;
+    return insertResult;
 }
 
 
@@ -79,29 +79,43 @@ function launchSelectedQuizz() {
 }
 
 function launchFriendsQuizz(response) {
-    //quiz banner @ page top:
+
+    printQuizzBanner(response);
+
+    createListOfCards();
+
+    createCardSlots(response);
+
+    createQuestionInCardSlots(response);
+
+    createAnswersInEachQuestion(response);
+}
+
+
+function printQuizzBanner(serverResponse) {
     let quizzBanner = document.querySelector(".quizz-banner");
     quizzBanner.innerHTML = '';
     quizzBanner.innerHTML += `
         <div class="quiz-title">
-            <img src="${response.data.image}">
-            <p>${response.data.title}</p>
+            <img src="${serverResponse.data.image}">
+            <p>${serverResponse.data.title}</p>
         </div>`;
+    console.log("printed quizz banner at the top?");
+}
 
+function createListOfCards() {
     let mainScreen = document.querySelector("main");
-    
     let newListOfCards = document.createElement("ul");
     newListOfCards.className = "question-cards-list";
     mainScreen.appendChild(newListOfCards);
     console.log("created ul_list-of-cards:\n", mainScreen.innerHTML);
-    createCardSlots(response);
 }
 
-function createCardSlots(response) {
+function createCardSlots(serverResponse) {
     //number of card slots needed:
-    let numberOfQuestions = response.data.questions.length;
-    console.log(response.data.questions, "\n# of questions: ", numberOfQuestions);
-    
+    let numberOfQuestions = serverResponse.data.questions.length;
+    console.log(serverResponse.data.questions, "\n# of questions: ", numberOfQuestions);
+
     let newCardSlot;
     //create # of card slots needed:
     for (i = 0; i < numberOfQuestions; i++) {
@@ -113,47 +127,40 @@ function createCardSlots(response) {
         document.querySelector("ul.question-cards-list").innerHTML += "\n";
     }
     console.log("created some li_card-slot 's\n", document.querySelector("main").innerHTML);
-
-    createCardFrameElements(response);
 }
 
-function createCardFrameElements(response) {
+function createQuestionInCardSlots(serverResponse) {
     //each li_card-slot has one question and multiple answers:
-    let numberOfQuestions = response.data.questions.length;
-    
+    let numberOfQuestions = serverResponse.data.questions.length;
+
     let listOfCardSlots = document.querySelectorAll(".question-cards-list li");
-    
+
     //adding the question inside the frame:
     for (i = 0; i < numberOfQuestions; i++) {
-        let newFrameQuestion = document.createElement("li");
+        let newFrameQuestion = document.createElement("ul");
         newFrameQuestion.className = `question${i}`;
         listOfCardSlots[i].innerHTML += "\n";
         listOfCardSlots[i].appendChild(newFrameQuestion);
     }
     console.log(document.querySelector("main").innerHTML);
     console.log("added question inside each card frame");
-    
-    //adding ONE img answer inside the frame:
+}
+
+function createAnswersInEachQuestion(serverResponse) {
+    //each card-slot__ul is ONE question with li__answers inside:
+    let numberOfQuestions = serverResponse.data.questions.length;
+        
+    let listInsideQuestionUL = document.querySelectorAll(".question-cards-list li ul");
+
     for (i = 0; i < numberOfQuestions; i++) {
-        let newFrameImg = document.createElement("img");
-        newFrameImg.className = `image${i}`;
-        listOfCardSlots[i].innerHTML += "\n";
-        listOfCardSlots[i].appendChild(newFrameImg);
-        listOfCardSlots[i].innerHTML += "\n";    
+        let numberOfAnswers = serverResponse.data.questions[i].answers.length;
+        for (j = 0; j < numberOfAnswers; j++) {
+            let newListItem = document.createElement("li");
+            newListItem.className = `answer${i}${j}`;
+            listInsideQuestionUL[i].innerHTML += "\n";
+            listInsideQuestionUL[i].appendChild(newListItem);
+        }
     }
     console.log(document.querySelector("main").innerHTML);
-    console.log("added one img inside each card frame");
-
-
-
-    //adding ONE text answer inside the frame:
-    for (i = 0; i < numberOfQuestions; i++) {
-        let newFrameTxt = document.createElement("p");
-        newFrameTxt.className = `answer-text${i}`;
-        listOfCardSlots[i].innerHTML += "\n";
-        listOfCardSlots[i].appendChild(newFrameTxt);
-        listOfCardSlots[i].innerHTML += "\n";    
-    }
-    console.log(document.querySelector("main").innerHTML);
-    console.log("added one answer-text inside each card frame");
+    console.log("added li's inside question ul inside each card frame?");
 }
