@@ -78,36 +78,6 @@ let localQuizzReplica = {
 //---------------------------------------------------------
 
 /* -----------------------------------------------*/
-function launchSelectedQuizz() {
-    let mainScreen = document.querySelector("main");
-    mainScreen.innerHTML = "";
-
-    let quizID = 1;
-    const quizzPromise = axios.get(`${QUIZZES_URL}` + quizID);
-    quizzPromise.then(launchFriendsQuizz);
-    quizzPromise.catch(console.log);
-}
-
-function launchFriendsQuizz(response) {
-    console.log("server responded: \n", response.data);
-    
-    localQuizzReplica = response.data;
-    console.log("replica: ", localQuizzReplica);
-
-    printQuizzBanner(localQuizzReplica);
-    
-    /*
-    createListOfCards();
-
-    createCardSlots(response);
-
-    createQuestionInCardSlots(response);
-
-    createAnswersInEachQuestion(response);
-    */
-}
-
-
 function printQuizzBanner(localQuizz) {
     //create new <img src="...">:
     let newBannerImg = document.createElement("img");
@@ -131,4 +101,61 @@ function printQuizzBanner(localQuizz) {
 
     console.log(quizzTopBanner.innerHTML);
     console.log("printed quizz banner at the top?");
+}
+
+
+function createListOfCards() {
+    let newListOfCards = document.createElement("ul");
+    newListOfCards.className = "question-cards-list";
+
+    let mainScreen = document.querySelector("main");
+    mainScreen.appendChild(newListOfCards);
+
+    console.log("created ul_list-of-cards:\n", mainScreen.innerHTML);
+}
+
+
+function createCardSlots(localQuizz) {
+    //# of li's created == # of questions in quizz:
+    let numberOfQuestions = localQuizz.questions.length;
+
+    let listOfCards = document.querySelector(".question-cards-list");
+
+    for (i = 0; i < numberOfQuestions; i++) {
+        let newListItem = document.createElement("li");
+        newListItem.className = `card-slot${i}`;
+        listOfCards.appendChild(newListItem);
+    }
+    console.log("created ul_li-card-slots:\n", listOfCards.innerHTML);
+}
+
+
+
+
+function launchFriendsQuizz(response) {
+    console.log("server responded: \n", response.data);
+    
+    localQuizzReplica = response.data;
+    console.log("replica: ", localQuizzReplica);
+
+    printQuizzBanner(localQuizzReplica);
+    
+    createListOfCards(localQuizzReplica);
+
+    createCardSlots(localQuizzReplica);
+    /*
+    createQuestionInCardSlots(response);
+
+    createAnswersInEachQuestion(response);
+    */
+}
+
+function launchSelectedQuizz() {
+    let mainScreen = document.querySelector("main");
+    mainScreen.innerHTML = "";
+
+    let quizID = 1;
+    const quizzPromise = axios.get(`${QUIZZES_URL}` + quizID);
+    quizzPromise.then(launchFriendsQuizz);
+    quizzPromise.catch(console.log);
 }
