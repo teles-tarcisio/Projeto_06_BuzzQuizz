@@ -79,27 +79,13 @@ let localQuizzReplica = {
 
 /* -----------------------------------------------*/
 function printQuizzBanner(localQuizz) {
-    //create new <img src="...">:
-    let newBannerImg = document.createElement("img");
-    newBannerImg.setAttribute("src", localQuizz.image);
-    
-    //create new <p> :
-    let newBannerTitle = document.createElement("p");
-    newBannerTitle.innerHTML = localQuizz.title;
-
-    //create new <div class="quiz-title"> :
-    let newDiv = document.createElement("div");
-    newDiv.className = "quiz-title";
-    //append img and title to created div:
-    newDiv.appendChild(newBannerImg);
-    newDiv.appendChild(newBannerTitle);
-
-    let quizzTopBanner = document.querySelector(".quizz-banner");
-    quizzTopBanner.innerHTML = "";
-    //append created div to DOM:
-    quizzTopBanner.appendChild(newDiv);
-
-    console.log(quizzTopBanner.innerHTML);
+    let quizzBanner = document.querySelector(".quizz-banner");
+    quizzBanner.innerHTML = '';
+    quizzBanner.innerHTML += `
+        <div class="quiz-title">
+            <img src="${localQuizz.image}">
+            <p>${localQuizz.title}</p>
+        </div>`;
     console.log("printed quizz banner at the top?");
 }
 
@@ -110,7 +96,6 @@ function createListOfCards() {
 
     let mainScreen = document.querySelector("main");
     mainScreen.appendChild(newListOfCards);
-
     console.log("created ul_list-of-cards:\n", mainScreen.innerHTML);
 }
 
@@ -124,12 +109,56 @@ function createCardSlots(localQuizz) {
     for (i = 0; i < numberOfQuestions; i++) {
         let newListItem = document.createElement("li");
         newListItem.className = `card-slot${i}`;
+        newListItem.innerHTML += "\n";
+
+        let newInnerUL = document.createElement("ul");
+        newInnerUL.className = `question${i}`;
+        newInnerUL.innerHTML += "\n";
+        
+        newListItem.appendChild(newInnerUL);
+        listOfCards.innerHTML += "\n";
         listOfCards.appendChild(newListItem);
     }
     console.log("created ul_li-card-slots:\n", listOfCards.innerHTML);
 }
 
 
+function createQuestionInCardSlots(localQuizz) {
+    //each li_card-slot has one question and multiple answers:
+    let numberOfQuestions = localQuizz.questions.length;
+
+    let listInsideCard = document.querySelectorAll(".question-cards-list ul");
+
+    //adding the question inside the frame:
+    for (i = 0; i < numberOfQuestions; i++) {
+        let newListItem = document.createElement("li");
+        newListItem.className = `question${i}_title`;
+        listInsideCard[i].appendChild(newListItem);
+        listInsideCard[i].innerHTML += "\n";
+    }
+    console.log(document.querySelector("main").innerHTML);
+    console.log("added question inside each card frame");
+}
+
+function createAnswersInEachQuestion(localQuizz) {
+    //each li_card-slot has one question and multiple answers:
+    let numberOfQuestions = localQuizz.questions.length;
+    
+    let listInsideCard = document.querySelectorAll(".question-cards-list ul");
+
+    //adding answers inside frame, after question title:
+    for (i = 0; i < numberOfQuestions; i++) {
+        let numberOfAnswers = localQuizz.questions[i].answers.length;
+        for (j = 0; j < numberOfAnswers; j++) {
+            let newListItem = document.createElement("li");
+            newListItem.className = `answer${i}${j}`;
+            listInsideCard[i].appendChild(newListItem);
+            listInsideCard[i].innerHTML += "\n";
+        }
+    }
+    console.log(document.querySelector("main").innerHTML);
+    console.log("added li's inside question ul inside each card frame?");
+}
 
 
 function launchFriendsQuizz(response) {
@@ -143,11 +172,10 @@ function launchFriendsQuizz(response) {
     createListOfCards(localQuizzReplica);
 
     createCardSlots(localQuizzReplica);
-    /*
-    createQuestionInCardSlots(response);
-
-    createAnswersInEachQuestion(response);
-    */
+    
+    createQuestionInCardSlots(localQuizzReplica);
+    
+    createAnswersInEachQuestion(localQuizzReplica);
 }
 
 function launchSelectedQuizz() {
