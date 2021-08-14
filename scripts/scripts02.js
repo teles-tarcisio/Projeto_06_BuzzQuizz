@@ -89,7 +89,6 @@ function printQuizzBanner(localQuizz) {
     console.log("printed quizz banner at the top?");
 }
 
-
 function createListOfCards() {
     let newListOfCards = document.createElement("ul");
     newListOfCards.className = "question-cards-list";
@@ -98,7 +97,6 @@ function createListOfCards() {
     mainScreen.appendChild(newListOfCards);
     console.log("created ul_list-of-cards:\n", mainScreen.innerHTML);
 }
-
 
 function createCardSlots(localQuizz) {
     //# of li's created == # of questions in quizz:
@@ -114,14 +112,13 @@ function createCardSlots(localQuizz) {
         let newInnerUL = document.createElement("ul");
         newInnerUL.className = `question${i}`;
         newInnerUL.innerHTML += "\n";
-        
+
         newListItem.appendChild(newInnerUL);
         listOfCards.innerHTML += "\n";
         listOfCards.appendChild(newListItem);
     }
     console.log("created ul_li-card-slots:\n", listOfCards.innerHTML);
 }
-
 
 function createQuestionInCardSlots(localQuizz) {
     //each li_card-slot has one question and multiple answers:
@@ -133,6 +130,7 @@ function createQuestionInCardSlots(localQuizz) {
     for (i = 0; i < numberOfQuestions; i++) {
         let newListItem = document.createElement("li");
         newListItem.className = `question${i}_title`;
+        newListItem.innerHTML = localQuizz.questions[i].title;
         listInsideCard[i].appendChild(newListItem);
         listInsideCard[i].innerHTML += "\n";
     }
@@ -143,7 +141,7 @@ function createQuestionInCardSlots(localQuizz) {
 function createAnswersInEachQuestion(localQuizz) {
     //each li_card-slot has one question and multiple answers:
     let numberOfQuestions = localQuizz.questions.length;
-    
+
     let listInsideCard = document.querySelectorAll(".question-cards-list ul");
 
     //adding answers inside frame, after question title:
@@ -152,6 +150,17 @@ function createAnswersInEachQuestion(localQuizz) {
         for (j = 0; j < numberOfAnswers; j++) {
             let newListItem = document.createElement("li");
             newListItem.className = `answer${i}${j}`;
+
+            let newAnswerText = document.createElement("p");
+            newAnswerText.className = `text${i}${j}`;
+            newAnswerText.innerHTML = localQuizz.questions[i].answers[j].text;
+            newListItem.appendChild(newAnswerText);
+
+            let newAnswerImage = document.createElement("img");
+            newAnswerImage.setAttribute("src", localQuizz.questions[i].answers[j].image);
+            newListItem.appendChild(newAnswerImage);
+
+
             listInsideCard[i].appendChild(newListItem);
             listInsideCard[i].innerHTML += "\n";
         }
@@ -160,21 +169,20 @@ function createAnswersInEachQuestion(localQuizz) {
     console.log("added li's inside question ul inside each card frame?");
 }
 
-
 function launchFriendsQuizz(response) {
     console.log("server responded: \n", response.data);
-    
+
     localQuizzReplica = response.data;
     console.log("replica: ", localQuizzReplica);
 
     printQuizzBanner(localQuizzReplica);
-    
+
     createListOfCards(localQuizzReplica);
 
     createCardSlots(localQuizzReplica);
-    
+
     createQuestionInCardSlots(localQuizzReplica);
-    
+
     createAnswersInEachQuestion(localQuizzReplica);
 }
 
