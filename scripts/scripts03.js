@@ -99,18 +99,15 @@ function showThirdPage(){
 }
 function saveSecondPageInfo(){
     let inputs = Array.from(document.querySelectorAll("input"));
-    createdQuiz.questions[0].title = inputs[0].value;
     createdQuiz.questions[0].color = inputs[1].value;
-    for(let cont=0;cont<3;cont++){
-    createdQuiz.questions[0].answer[cont].title = inputs[2].value;
-    createdQuiz.questions[0].answer[cont].image = inputs[3].value;
-    }
+    console.log(createdQuiz.questions[0].color)
+    saveOneQuestionInfo(inputs);
 }
 function saveOneQuestionInfo(inputs){
     createdQuiz.questions[0].title = inputs[0].value;
     createdQuiz.questions[0].color = inputs[1].value;
-    for(let cont=0;cont<3;cont++){
-    createdQuiz.questions[0].answer[cont].title = inputs[2+cont*2].value;
-    createdQuiz.questions[0].answer[cont].image = inputs[3+cont*2].value;
-    }
+    for(let j=0;cont<3;cont++){
+    createdQuiz.questions[0].answer[j].title = inputs[2+cont*2].value;
+    createdQuiz.questions[0].answer[j].image = inputs[3+cont*2].value;
+    } 
 }
