@@ -11,12 +11,19 @@ function errorGettingQuizzes(serverError) {
     console.log("error getting quizzes: ", serverError);
 }
 
-function printQuizzesToHTML(response) {
+
+const allQuizzesArray = [];
+function printQuizzesToHTML(serverResponse) {
+    for (i = 0; i < serverResponse.data.length; i++) {
+        allQuizzesArray.push(serverResponse.data[i]);        
+    };
+    console.log(allQuizzesArray);
+
     let allQuizzesList = document.querySelector(".all-quizzes ul");
-    for (i = 0; i < response.data.length; i++) {
-        allQuizzesList.innerHTML += `<li onclick="alert('will launch Friends Quizz'), launchSelectedQuizz()">
-        <div> <h2> ${response.data[i].title} </h2> </div>
-        <img src="${response.data[i].image}">
+    for (i = 0; i < allQuizzesArray.length; i++) {
+        allQuizzesList.innerHTML += `<li onclick="alert('launch Friends test Quizz'), launchSelectedQuizz()">
+        <div > <h2> ${allQuizzesArray[i].title} </h2> </div>
+        <img src="${allQuizzesArray[i].image}">
         </li>`;
     }
     console.log("finished printing quizzes to html");
