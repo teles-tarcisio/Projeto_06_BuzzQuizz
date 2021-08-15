@@ -10,7 +10,7 @@ let newQuizzQuestion = {
     title: "",
     color: "",
     answers: []
-};
+}; 
 
 let newQuizzAnswer = {
     text: "",
@@ -25,7 +25,7 @@ let newQuizzLevel = {
     minValue: 0
 };
 
-function createQuizzPage() {
+function createQuizzPage(){
     let mainDiv = document.querySelector("main");
     mainDiv.innerHTML = "";
     mainDiv.innerHTML += `<div class="new-quizz first-page">
@@ -38,11 +38,10 @@ function createQuizzPage() {
                             <input classname="create-questions-qtty" type="number" placeholder="Quantidade de perguntas do quizz" min="3" max="10">
                             <input classname="create-levels-qtty" type="number" placeholder="Quantidade de níveis do quizz" min="3" max="10">
                             </div>
-                            <button onclick="showSecondPage()"> 
+                            <button onclick="saveFirstPageInfo(),showSecondPage()"> 
                                 Prosseguir para criar perguntas
                             </button>
                         </div>`;
-        saveFirstPageInfo();
 }
 
 function saveFirstPageInfo() {
@@ -61,18 +60,18 @@ function saveFirstPageInfo() {
     console.log("created: ", newCreatedQuizz);
 }
 
-function showSecondPage() {
-    let quizzPage = document.querySelector(".new-quizz");
-    quizzPage.classList.add("second-page");
-    quizzPage.classList.remove("first-page");
-    quizzPage.innerHTML = "";
-    quizzPage.innerHTML += `<h1>
-                                Crie suas perguntas
-                            </h1>
-                            <div>
-                                <h2>Pergunta 1</h2>
+function showSecondPage(){ 
+    let quizpage = document.querySelector(".new-quiz");
+    quizpage.classList.add("second-page");
+    quizpage.classList.remove("first-page");
+    quizpage.innerHTML = `<h1>
+                            Crie suas perguntas
+                        </h1>`
+    for(let i=0; i<questionsLength ;i++){
+    quizpage.innerHTML += `<div>
+                                <h2>Pergunta ${i+1}</h2>
                                 <input type="text" placeholder="Texto da pergunta">
-                                <input type="text" placeholder="Cor de fundo da pergunta">
+                                <input type="color" placeholder="Cor de fundo da pergunta">
                                 <h2>Resposta correta</h2>
                                 <input type="text" placeholder="Resposta correta">
                                 <input type="text" placeholder="URL da imagem">
@@ -83,23 +82,45 @@ function showSecondPage() {
                                 <input type="text" placeholder="URL da imagem 2">
                                 <input type="text" placeholder="Resposta incorreta 3">
                                 <input type="text" placeholder="URL da imagem 3">
-                            </div>
-                            <div>
-                                <h2>Pergunta 2</h2>
-                                <input type="text" placeholder="Texto da pergunta">
-                                <input type="text" placeholder="Cor de fundo da pergunta">
-                                <h2>Resposta correta</h2>
-                                <input type="text" placeholder="Resposta correta">
-                                <input type="text" placeholder="URL da imagem">
-                                <h2>Resposta incorretas</h2>
-                                <input type="text" placeholder="Resposta incorreta 1">
-                                <input type="text" placeholder="URL da imagem 1">
-                                <input type="text" placeholder="Resposta incorreta 2">
-                                <input type="text" placeholder="URL da imagem 2">
-                                <input type="text" placeholder="Resposta incorreta 3">
-                                <input type="text" placeholder="URL da imagem 3">
-                            </div>
-                            <button>
+                            </div>`
+    }
+    console.log(createdQuiz);
+    quizpage.innerHTML += `<button onclick="saveSecondPageInfo(),showThirdPage()">
                                 Prosseguir para criar níveis
-</button>`;
+                            </button>`
+}
+
+function showThirdPage(){
+    let quizpage = document.querySelector(".new-quiz");
+    quizpage.classList.add("third-page");
+    quizpage.classList.remove("second-page");
+    quizpage.innerHTML = "";
+    quizpage.innerHTML +=`
+                        <h1>
+                            Agora, decida os níveis
+                        </h1>
+                        <div>
+                            <input type="text" placeholder="Título do seu quizz">
+                            <input type="text" placeholder="URL da imagem do seu quizz">
+                            <input type="text" placeholder="Quantidade de perguntas do quizz">
+                            <input type="text" placeholder="Quantidade de níveis do quizz">
+                        </div>
+                        <button>
+                            Prosseguir para criar perguntas
+                        </button>`
+}
+
+function saveSecondPageInfo(){
+    let inputs = Array.from(document.querySelectorAll("input"));
+    console.log(inputs);
+    saveOneQuestionInfo(inputs);
+}
+
+function saveOneQuestionInfo(inputs){
+    newQuizQuestion[0].title = inputs[0].value;
+    newQuizQuestions[0].color = inputs[1].value;
+    for(let j=0;cont<3;cont++){
+    newQuizAnswer[j].title = inputs[2+cont*2].value;
+    newQuizAnswer[j].image = inputs[3+cont*2].value;
+    } 
 }

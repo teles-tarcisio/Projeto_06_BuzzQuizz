@@ -24,6 +24,13 @@
 }
 .new-quizz.second-page div {
     height: 825px;
+    margin: 40px auto 24px auto;
+}
+.new-quiz.second-page:last-child{
+    margin-bottom: 75px;
+}
+.new-quiz.third-page div{
+    height: 320px;
     margin: 36px auto 24px auto;
 }
 .new-quizz.second-page:last-child {
