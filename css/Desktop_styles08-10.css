@@ -1,4 +1,4 @@
-.new-quiz{
+.new-quizz {
     margin: 140px auto 0 auto;
     width: 600px;
     display: flex;
@@ -8,10 +8,10 @@
     font-size: 23px;
     font-weight: 700;
 }
-.new-quiz.first-page{
+.new-quizz.first-page {
     height: 489px;
 }
-.new-quiz div{
+.new-quizz div {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -19,17 +19,17 @@
     background: #FFFFFF;
     padding: 20px;
 }
-.new-quiz.first-page div{
+.new-quizz.first-page div {
     height: 260px;
 }
-.new-quiz.second-page div{
+.new-quizz.second-page div {
     height: 825px;
     margin: 36px auto 24px auto;
 }
-.new-quiz.second-page:last-child{
+.new-quizz.second-page:last-child {
     margin-bottom: 81px;
 }
-.new-quiz div input{
+.new-quizz div input {
     height: 46px;
     border-radius: 5px;
     border: 1px solid #D1D1D1;
@@ -37,7 +37,7 @@
     font-size: 19px;
     font-style: italic;
 }
-.new-quiz button{
+.new-quizz button {
     width: 367.72px;
     height: 54px;
     font-size: 21px;

@@ -20,9 +20,9 @@
 
 // }
 
-function createQuizPage(){
+function createQuizzPage(){
     let mainDiv=document.querySelector("main");
-    mainDiv.innerHTML =`<div class="new-quiz first-page">
+    mainDiv.innerHTML =`<div class="new-quizz first-page">
                             <h1>
                                 Comece pelo começo
                             </h1>
@@ -46,11 +46,11 @@ function createQuizPage(){
 // }
 function showSecondPage(){
 //    saveInfoFirstPage;
-    let quizpage = document.querySelector(".new-quiz");
-    quizpage.classList.add("second-page");
-    quizpage.classList.remove("first-page");
-    quizpage.innerHTML = "";
-    quizpage.innerHTML += `<h1>
+    let quizzPage = document.querySelector(".new-quizz");
+    quizzPage.classList.add("second-page");
+    quizzPage.classList.remove("first-page");
+    quizzPage.innerHTML = "";
+    quizzPage.innerHTML += `<h1>
                                 Crie suas perguntas
                             </h1>
                             <div>

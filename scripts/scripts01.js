@@ -1,6 +1,5 @@
 const QUIZZES_URL = "https://mock-api.bootcamp.respondeai.com.br/api/v3/buzzquizz/quizzes/";
 
-/*Getting all quizzes------------------------------------*/
 
 function getAllQuizzes() {
     const quizzPromise = axios.get(QUIZZES_URL);

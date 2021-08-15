@@ -70,7 +70,7 @@ li.answer img {
     height: 175px;
 }
 
-.quiz-result{
+.quizz-result{
     width: 750px;
     height: 430px;
     margin: 45px auto 0 auto;
@@ -81,21 +81,21 @@ li.answer img {
     align-items: center;
     padding: 15px;
 }
-.quiz-result-text{
+.quizz-result-text{
     display: flex;
     justify-content: space-around;
     font-size: 19px;
     font-weight: 700;
     color:#484848;
 }
-.quiz-result-text img{
+.quizz-result-text img{
     width: 360px;
     height: 270px;
 }
-.quiz-result-text p{
+.quizz-result-text p{
     margin-left: 20px;
 }
-.quiz-result-title{
+.quizz-result-title{
     width: 720px;
     height: 100px;
     background-color: red;
