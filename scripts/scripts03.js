@@ -1,54 +1,66 @@
-// esquema da variavel para enviar no post(rascunho)
-let createdQuiz = new Object;
-createdQuiz.title='';
-createdQuiz.image='';
-createdQuiz.questions= [new Object];
-createdQuiz.levels= new Object;
+// esquema da variavel para enviar no post:
+let newCreatedQuizz = {
+    title: "",
+    image: "",
+    questions: [],
+    levels: []
+};
 
-createdQuiz.questions.title="";
-createdQuiz.questions.color="";
-createdQuiz.questions.answer= [new Object];
+let newQuizzQuestion = {
+    title: "",
+    color: "",
+    answers: []
+}; 
 
-createdQuiz.questions.answer.title="";
-createdQuiz.questions.answer.image="";
-createdQuiz.questions.answer.isCorrectAnswer= false;
+let newQuizzAnswer = {
+    text: "",
+    image: "",
+    isCorrectAnswer: false
+};
 
-createdQuiz.levels.title="";
-createdQuiz.levels.image="";
-createdQuiz.levels.text="";
-createdQuiz.levels.minValue=0;
+let newQuizzLevel = {
+    title: "",
+    image: "",
+    text: "",
+    minValue: 0
+};
 
-
-function createQuizPage(){
-    let mainDiv=document.querySelector("main");
-    mainDiv.innerHTML =`<div class="new-quiz first-page">
+function createQuizzPage(){
+    let mainDiv = document.querySelector("main");
+    mainDiv.innerHTML = "";
+    mainDiv.innerHTML += `<div class="new-quizz first-page">
                             <h1>
                                 Comece pelo começo
                             </h1>
                             <div>
-                            <input type="text" placeholder="Título do seu quizz">
-                            <input type="text" placeholder="URL da imagem do seu quizz">
-                            <input type="text" placeholder="Quantidade de perguntas do quizz">
-                            <input type="text" placeholder="Quantidade de níveis do quizz">
+                            <input classname="create-title" type="text" placeholder="Título do seu quizz">
+                            <input classname="create-image" type="text" placeholder="URL da imagem do seu quizz">
+                            <input classname="create-questions-qtty" type="number" placeholder="Quantidade de perguntas do quizz" min="3" max="10">
+                            <input classname="create-levels-qtty" type="number" placeholder="Quantidade de níveis do quizz" min="3" max="10">
                             </div>
                             <button onclick="saveFirstPageInfo(),showSecondPage()"> 
                                 Prosseguir para criar perguntas
                             </button>
                         </div>`;
-} 
-// funcao para salvar dados na variavel antes de envia-la(rascunho)
-let questionsLength;
-function saveFirstPageInfo(){
-    createdQuiz.title = document.querySelector("input:first-child").value;
-    console.log(createdQuiz.title)
-    createdQuiz.image = document.querySelector("input:nth-child(2)").value;
-    console.log(createdQuiz.image)
-    questionsLength=Number(document.querySelector("input:nth-child(3)").value);
-    console.log(questionsLength)
-    let levelsLength=Number(document.querySelector("input:nth-child(4)").value);
-    console.log(levelsLength)
 }
- function showSecondPage(){ 
+
+function saveFirstPageInfo() {
+    let target = document.querySelector("main .create-title");
+    newCreatedQuizz.title = target.value;
+
+    target = document.querySelector("main .create-image");
+    newCreatedQuizz.image = target.value;
+
+    target = document.querySelector("main .create-questions-qtty");
+    newCreatedQuizz.questions.length = target.value;
+
+    target = document.querySelector("main .create-levels-qtty");
+    newCreatedQuizz.levels.length = target.value;
+
+    console.log("created: ", newCreatedQuizz);
+}
+
+function showSecondPage(){ 
     let quizpage = document.querySelector(".new-quiz");
     quizpage.classList.add("second-page");
     quizpage.classList.remove("first-page");
@@ -71,13 +83,13 @@ function saveFirstPageInfo(){
                                 <input type="text" placeholder="Resposta incorreta 3">
                                 <input type="text" placeholder="URL da imagem 3">
                             </div>`
-                            
     }
     console.log(createdQuiz);
     quizpage.innerHTML += `<button onclick="saveSecondPageInfo(),showThirdPage()">
                                 Prosseguir para criar níveis
                             </button>`
 }
+
 function showThirdPage(){
     let quizpage = document.querySelector(".new-quiz");
     quizpage.classList.add("third-page");
@@ -97,17 +109,18 @@ function showThirdPage(){
                             Prosseguir para criar perguntas
                         </button>`
 }
+
 function saveSecondPageInfo(){
     let inputs = Array.from(document.querySelectorAll("input"));
-    createdQuiz.questions[0].color = inputs[1].value;
-    console.log(createdQuiz.questions[0].color)
+    console.log(inputs);
     saveOneQuestionInfo(inputs);
 }
+
 function saveOneQuestionInfo(inputs){
-    createdQuiz.questions[0].title = inputs[0].value;
-    createdQuiz.questions[0].color = inputs[1].value;
+    newQuizQuestion[0].title = inputs[0].value;
+    newQuizQuestions[0].color = inputs[1].value;
     for(let j=0;cont<3;cont++){
-    createdQuiz.questions[0].answer[j].title = inputs[2+cont*2].value;
-    createdQuiz.questions[0].answer[j].image = inputs[3+cont*2].value;
+    newQuizAnswer[j].title = inputs[2+cont*2].value;
+    newQuizAnswer[j].image = inputs[3+cont*2].value;
     } 
 }

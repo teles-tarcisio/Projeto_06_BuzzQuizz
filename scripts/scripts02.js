@@ -6,35 +6,35 @@ function launchQuizz(element) {
 }
 
 function insertSelectedQuizz() {
-    const insertQuiz = `
-    <div class="quiz">
-            <div class="quizTitle">
+    const insertQuizz = `
+    <div class="quizz">
+            <div class="quizz-title">
                 <img src="/images/quiztitleharrypotter.png">
                 <p>O quão Potterhead é você?</p>
             </div>
             <ul>
-                <li class="questionTitle">
+                <li class="question-title">
                     <p>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</p>
                 </li>
-                <li class="questionAnswer">
+                <li class="question-answer">
                     <img src="/images/Gatineo.png">
                     <p>Gatineo</p>
                 </li>
-                <li class="questionAnswer">
+                <li class="question-answer">
                     <img src="/images/Gatineo.png">
                     <p>Ratata</p>
                 </li>
-                <li class="questionAnswer">
+                <li class="question-answer">
                     <img src="/images/Gatineo.png">
                     <p>Sapo gordo</p>
                 </li>
-                <li class="questionAnswer">
+                <li class="question-answer">
                     <img src="/images/Gatineo.png">
                     <p>Mustela putorius (o Furão)</p>
                 </li>
             </ul>
         </div>`;
-    return insertQuiz;
+    return insertQuizz;
 }
 
 
@@ -42,16 +42,16 @@ function launchResult(element) {
     console.log(element);
     let mainScreen = document.querySelector("main");
     mainScreen.innerHTML = "";
-    mainScreen.innerHTML += insertQuizResult();
+    mainScreen.innerHTML += insertQuizzResult();
 }
 
-function insertQuizResult() {
+function insertQuizzResult() {
     const insertResult = `
-    <div class="quiz-result">
-            <div class="quiz-result-title">
+    <div class="quizz-result">
+            <div class="quizz-result-title">
                 <h1>88% de acerto: Você é praticamente um aluno de Hogwarts!</h1>
             </div>
-            <div class="quiz-result-text">
+            <div class="quizz-result-text">
                 <img src="/images/simpsons.png">
                 <p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão
                     abaixo para usar o vira-tempo e reiniciar este teste.</p>
@@ -73,7 +73,7 @@ let localQuizzReplica = {
     title: "",
     image: "",
     questions: [],
-    level: []
+    levels: []
 };
 //---------------------------------------------------------
 
@@ -82,10 +82,8 @@ function printQuizzBanner(localQuizz) {
     let quizzBanner = document.querySelector(".quizz-banner");
     quizzBanner.innerHTML = '';
     quizzBanner.innerHTML += `
-        <div class="quiz-title">
             <img src="${localQuizz.image}">
-            <p>${localQuizz.title}</p>
-        </div>`;
+            <p>${localQuizz.title}</p>`;
     console.log("printed quizz banner at the top?");
 }
 
@@ -129,7 +127,8 @@ function createQuestionInCardSlots(localQuizz) {
     //adding the question inside the frame:
     for (i = 0; i < numberOfQuestions; i++) {
         let newListItem = document.createElement("li");
-        newListItem.className = `question_title`;
+        newListItem.className = `question-title`;
+        newListItem.style.backgroundColor = localQuizz.questions[i].color;
         newListItem.innerHTML = localQuizz.questions[i].title;
         listInsideCard[i].appendChild(newListItem);
         listInsideCard[i].innerHTML += "\n";
@@ -151,15 +150,14 @@ function createAnswersInEachQuestion(localQuizz) {
             let newListItem = document.createElement("li");
             newListItem.className = `answer`;
 
-            let newAnswerText = document.createElement("p");
-            newAnswerText.className = `text`;
-            newAnswerText.innerHTML = localQuizz.questions[i].answers[j].text;
-            newListItem.appendChild(newAnswerText);
-
             let newAnswerImage = document.createElement("img");
             newAnswerImage.setAttribute("src", localQuizz.questions[i].answers[j].image);
             newListItem.appendChild(newAnswerImage);
 
+            let newAnswerText = document.createElement("p");
+            newAnswerText.className = `text`;
+            newAnswerText.innerHTML = localQuizz.questions[i].answers[j].text;
+            newListItem.appendChild(newAnswerText);
 
             listInsideCard[i].appendChild(newListItem);
             listInsideCard[i].innerHTML += "\n";
