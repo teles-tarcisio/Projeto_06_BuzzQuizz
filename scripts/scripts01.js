@@ -21,8 +21,8 @@ function printQuizzesToHTML(serverResponse) {
 
     let allQuizzesList = document.querySelector(".all-quizzes ul");
     for (i = 0; i < allQuizzesArray.length; i++) {
-        allQuizzesList.innerHTML += `<li onclick="alert('launch Friends test Quizz'), launchSelectedQuizz()">
-        <div id="quizz${allQuizzesArray[i].id}"> <h2> ${allQuizzesArray[i].title} </h2> </div>
+        allQuizzesList.innerHTML += `<li onclick="alert('get this quizz'), getSelectedQuizz(this)">
+        <div id="${allQuizzesArray[i].id}"> <h2> ${allQuizzesArray[i].title} </h2> </div>
         <img src="${allQuizzesArray[i].image}">
         </li>`;
     }

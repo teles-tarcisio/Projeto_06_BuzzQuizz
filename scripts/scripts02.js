@@ -167,7 +167,7 @@ function createAnswersInEachQuestion(localQuizz) {
     console.log("added li's inside question ul inside each card frame?");
 }
 
-function launchFriendsQuizz(response) {
+function launchSelectedQuizz(response) {
     console.log("server responded: \n", response.data);
 
     localQuizzReplica = response.data;
@@ -184,12 +184,13 @@ function launchFriendsQuizz(response) {
     createAnswersInEachQuestion(localQuizzReplica);
 }
 
-function launchSelectedQuizz() {
+function getSelectedQuizz(element) {
     let mainScreen = document.querySelector("main");
     mainScreen.innerHTML = "";
 
-    let quizID = 1;
-    const quizzPromise = axios.get(`${QUIZZES_URL}` + quizID);
-    quizzPromise.then(launchFriendsQuizz);
+    let quizzID = element.querySelector("div").id;
+    alert(`id=${quizzID}`);
+    const quizzPromise = axios.get(`${QUIZZES_URL}` + quizzID);
+    quizzPromise.then(launchSelectedQuizz);
     quizzPromise.catch(console.log);
 }
