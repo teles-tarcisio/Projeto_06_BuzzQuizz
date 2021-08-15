@@ -73,7 +73,7 @@ let localQuizzReplica = {
     title: "",
     image: "",
     questions: [],
-    level: []
+    levels: []
 };
 //---------------------------------------------------------
 

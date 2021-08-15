@@ -1,51 +1,67 @@
-// esquema da variavel para enviar no post
-//let CreatedQuiz = {
-//     title,
-//     image,
-//     questions:{
-//         title,
-//         color,
-//         answer: {
-//             title,
-//             image,
-//             isCorrectAnswer
-//         }
-//     },
-//     levels:{
-//         title,
-//         image, 
-//         text,
-//         minValue
-//     }
+// esquema da variavel para enviar no post:
+let newCreatedQuizz = {
+    title: "",
+    image: "",
+    questions: [],
+    levels: []
+};
 
-// }
+let newQuizzQuestion = {
+    title: "",
+    color: "",
+    answers: []
+};
 
-function createQuizzPage(){
-    let mainDiv=document.querySelector("main");
-    mainDiv.innerHTML =`<div class="new-quizz first-page">
+let newQuizzAnswer = {
+    text: "",
+    image: "",
+    isCorrectAnswer: false
+};
+
+let newQuizzLevel = {
+    title: "",
+    image: "",
+    text: "",
+    minValue: 0
+};
+
+function createQuizzPage() {
+    let mainDiv = document.querySelector("main");
+    mainDiv.innerHTML = "";
+    mainDiv.innerHTML += `<div class="new-quizz first-page">
                             <h1>
                                 Comece pelo começo
                             </h1>
                             <div>
-                            <input type="text" placeholder="Título do seu quizz">
-                            <input type="text" placeholder="URL da imagem do seu quizz">
-                            <input type="text" placeholder="Quantidade de perguntas do quizz">
-                            <input type="text" placeholder="Quantidade de níveis do quizz">
+                            <input classname="create-title" type="text" placeholder="Título do seu quizz">
+                            <input classname="create-image" type="text" placeholder="URL da imagem do seu quizz">
+                            <input classname="create-questions-qtty" type="number" placeholder="Quantidade de perguntas do quizz" min="3" max="10">
+                            <input classname="create-levels-qtty" type="number" placeholder="Quantidade de níveis do quizz" min="3" max="10">
                             </div>
                             <button onclick="showSecondPage()"> 
                                 Prosseguir para criar perguntas
                             </button>
                         </div>`;
-} 
-// funcao para salvar dados na variavel antes de envia-la(rascunho)
-//function saveInfoFirstPage(){
-//     title:<input type="text" placeholder="Título do seu quizz">.value
-//     image:<input type="text" placeholder="URL da imagem do seu quizz">.value
-//     questions.length:<input type="text" placeholder="Quantidade de perguntas do quizz">.value
-//     levels.length:<input type="text" placeholder="Quantidade de níveis do quizz">.value
-// }
-function showSecondPage(){
-//    saveInfoFirstPage;
+        saveFirstPageInfo();
+}
+
+function saveFirstPageInfo() {
+    let target = document.querySelector("main .create-title");
+    newCreatedQuizz.title = target.value;
+
+    target = document.querySelector("main .create-image");
+    newCreatedQuizz.image = target.value;
+
+    target = document.querySelector("main .create-questions-qtty");
+    newCreatedQuizz.questions.length = target.value;
+
+    target = document.querySelector("main .create-levels-qtty");
+    newCreatedQuizz.levels.length = target.value;
+
+    console.log("created: ", newCreatedQuizz);
+}
+
+function showSecondPage() {
     let quizzPage = document.querySelector(".new-quizz");
     quizzPage.classList.add("second-page");
     quizzPage.classList.remove("first-page");
@@ -85,5 +101,5 @@ function showSecondPage(){
                             </div>
                             <button>
                                 Prosseguir para criar níveis
-</button>`
+</button>`;
 }
