@@ -74,6 +74,7 @@ main {
     display: flex;
     flex-direction: column;
     border: 1px dotted blue;
+    word-wrap: break-word;
 }
 .all-quizzes h1 {
     font-size: 20px;
@@ -86,7 +87,6 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    border: 1px dotted green;
 }
 .all-quizzes li {
     width: 340px;
@@ -95,7 +95,7 @@ main {
     border-radius: 5px;
     display: flex;
     position: relative;
-    
+    text-align: center;
 }
 .all-quizzes div {
     width: 100%;

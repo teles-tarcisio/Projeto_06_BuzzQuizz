@@ -8,6 +8,7 @@ function getAllQuizzes() {
 }
 
 function errorGettingQuizzes(serverError) {
+    alert("Error fetching quizzes from server!");
     console.log("error getting quizzes: ", serverError);
 }
 
@@ -17,11 +18,10 @@ function printQuizzesToHTML(serverResponse) {
     for (i = 0; i < serverResponse.data.length; i++) {
         allQuizzesArray.push(serverResponse.data[i]);        
     };
-    console.log(allQuizzesArray);
-
+    
     let allQuizzesList = document.querySelector(".all-quizzes ul");
     for (i = 0; i < allQuizzesArray.length; i++) {
-        allQuizzesList.innerHTML += `<li onclick="alert('get this quizz'), getSelectedQuizz(this)">
+        allQuizzesList.innerHTML += `<li onclick="getSelectedQuizz(this)">
         <div id="${allQuizzesArray[i].id}"> <h2> ${allQuizzesArray[i].title} </h2> </div>
         <img src="${allQuizzesArray[i].image}">
         </li>`;

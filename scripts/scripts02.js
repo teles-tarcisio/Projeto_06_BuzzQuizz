@@ -84,7 +84,6 @@ function printQuizzBanner(localQuizz) {
     quizzBanner.innerHTML += `
             <img src="${localQuizz.image}">
             <p>${localQuizz.title}</p>`;
-    console.log("printed quizz banner at the top?");
 }
 
 function createListOfCards() {
@@ -93,7 +92,6 @@ function createListOfCards() {
 
     let mainScreen = document.querySelector("main");
     mainScreen.appendChild(newListOfCards);
-    console.log("created ul_list-of-cards:\n", mainScreen.innerHTML);
 }
 
 function createCardSlots(localQuizz) {
@@ -115,7 +113,6 @@ function createCardSlots(localQuizz) {
         listOfCards.innerHTML += "\n";
         listOfCards.appendChild(newListItem);
     }
-    console.log("created ul_li-card-slots:\n", listOfCards.innerHTML);
 }
 
 function createQuestionInCardSlots(localQuizz) {
@@ -133,8 +130,6 @@ function createQuestionInCardSlots(localQuizz) {
         listInsideCard[i].appendChild(newListItem);
         listInsideCard[i].innerHTML += "\n";
     }
-    console.log(document.querySelector("main").innerHTML);
-    console.log("added question inside each card frame");
 }
 
 function createAnswersInEachQuestion(localQuizz) {
@@ -149,7 +144,7 @@ function createAnswersInEachQuestion(localQuizz) {
         for (j = 0; j < numberOfAnswers; j++) {
             let newListItem = document.createElement("li");
             newListItem.className = `answer`;
-
+                        
             let newAnswerImage = document.createElement("img");
             newAnswerImage.setAttribute("src", localQuizz.questions[i].answers[j].image);
             newListItem.appendChild(newAnswerImage);
@@ -163,16 +158,19 @@ function createAnswersInEachQuestion(localQuizz) {
             listInsideCard[i].innerHTML += "\n";
         }
     }
-    console.log(document.querySelector("main").innerHTML);
-    console.log("added li's inside question ul inside each card frame?");
+    
+    document.querySelectorAll(".question-cards-list ul li.answer").addEventListener("click", testClick());    
+}
+function testClick() {
+    console.log("clicked nessa disgrassa");
 }
 
 function launchSelectedQuizz(response) {
     console.log("server responded: \n", response.data);
 
     localQuizzReplica = response.data;
-    console.log("replica: ", localQuizzReplica);
-
+    console.log('replica:', localQuizzReplica);
+    
     printQuizzBanner(localQuizzReplica);
 
     createListOfCards(localQuizzReplica);
@@ -188,7 +186,8 @@ function getSelectedQuizz(element) {
     let mainScreen = document.querySelector("main");
     mainScreen.innerHTML = "";
 
-    let quizzID = element.querySelector("div").id;
+    //let quizzID = element.querySelector("div").id;
+    let quizzID = 1;
     alert(`id=${quizzID}`);
     const quizzPromise = axios.get(`${QUIZZES_URL}` + quizzID);
     quizzPromise.then(launchSelectedQuizz);
