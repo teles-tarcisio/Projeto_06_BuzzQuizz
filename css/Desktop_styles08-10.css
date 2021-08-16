@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 .new-quizz {
+=======
+.new-quizz{
+>>>>>>> 3833e19 (minor functions/elements names adjustments)
     margin: 140px auto 0 auto;
     width: 600px;
     display: flex;
@@ -8,10 +12,17 @@
     font-size: 23px;
     font-weight: 700;
 }
+<<<<<<< HEAD
 .new-quizz.first-page {
     height: 489px;
 }
 .new-quizz div {
+=======
+.new-quizz.first-page{
+    height: 489px;
+}
+.new-quizz div{
+>>>>>>> 3833e19 (minor functions/elements names adjustments)
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -19,13 +30,21 @@
     background: #FFFFFF;
     padding: 20px;
 }
+<<<<<<< HEAD
 .new-quizz.first-page div {
     height: 260px;
 }
 .new-quizz.second-page div {
+=======
+.new-quizz.first-page div{
+    height: 260px;
+}
+.new-quizz.second-page div{
+>>>>>>> 3833e19 (minor functions/elements names adjustments)
     height: 825px;
     margin: 40px auto 24px auto;
 }
+<<<<<<< HEAD
 .new-quiz.second-page:last-child{
     margin-bottom: 75px;
 }
@@ -37,6 +56,12 @@
     margin-bottom: 81px;
 }
 .new-quizz div input {
+=======
+.new-quizz.second-page:last-child{
+    margin-bottom: 81px;
+}
+.new-quizz div input{
+>>>>>>> 3833e19 (minor functions/elements names adjustments)
     height: 46px;
     border-radius: 5px;
     border: 1px solid #D1D1D1;
@@ -44,7 +69,11 @@
     font-size: 19px;
     font-style: italic;
 }
+<<<<<<< HEAD
 .new-quizz button {
+=======
+.new-quizz button{
+>>>>>>> 3833e19 (minor functions/elements names adjustments)
     width: 367.72px;
     height: 54px;
     font-size: 21px;
