@@ -101,9 +101,9 @@ function randomComparator() {
 function randomizeQuizz(quizzObject) {    
     quizzObject.questions = quizzObject.questions.sort(randomComparator);
     for (i = 0; i < quizzObject.questions.length; i++) {
-        console.log(quizzObject.questions[i]);
-        quizzObject.questions[i] = quizzObject.questions[i].sort(randomComparator);
-        console.log(quizzObject.questions[i]);
+        console.log(quizzObject.questions[i].answers);
+        quizzObject.questions[i].answers = quizzObject.questions[i].answers.sort(randomComparator);
+        console.log(quizzObject.questions[i].answers);
     }
 }
 
