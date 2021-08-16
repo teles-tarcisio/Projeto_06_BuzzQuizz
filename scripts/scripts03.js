@@ -25,7 +25,7 @@ let newQuizzLevel = {
     minValue: 0
 };
 
-function createQuizzPage(){
+function createQuizzPage() {
     let mainDiv = document.querySelector("main");
     mainDiv.innerHTML = "";
     mainDiv.innerHTML += `<div class="new-quizz first-page">
