@@ -94,12 +94,28 @@ function createAnswersInEachQuestion(localQuizz) {
 
 }
 
+function randomComparator() {
+    return (Math.random() - 0.5);
+}
+
+function randomizeQuizz(quizzObject) {    
+    quizzObject.questions = quizzObject.questions.sort(randomComparator);
+    for (i = 0; i < quizzObject.questions.length; i++) {
+        console.log(quizzObject.questions[i]);
+        quizzObject.questions[i] = quizzObject.questions[i].sort(randomComparator);
+        console.log(quizzObject.questions[i]);
+    }
+}
+
 function launchSelectedQuizz(response) {
     console.log("server responded: \n", response.data);
 
     localQuizzReplica = response.data;
-    console.log('replica:', localQuizzReplica);
+    console.log("received quizz: ", localQuizzReplica.questions);
     
+    randomizeQuizz(localQuizzReplica);
+    console.log("randomized quizz: ", localQuizzReplica.questions);
+                
     printQuizzBanner(localQuizzReplica);
 
     createListOfCards(localQuizzReplica);
