@@ -45,6 +45,7 @@ function createQuizzPage(){
 }
 
 function saveFirstPageInfo() {
+    /*
     let target = document.querySelector("main .create-title");
     newCreatedQuizz.title = target.value;
 
@@ -56,19 +57,20 @@ function saveFirstPageInfo() {
 
     target = document.querySelector("main .create-levels-qtty");
     newCreatedQuizz.levels.length = target.value;
+    */
 
     console.log("created: ", newCreatedQuizz);
 }
 
 function showSecondPage(){ 
-    let quizpage = document.querySelector(".new-quiz");
-    quizpage.classList.add("second-page");
-    quizpage.classList.remove("first-page");
-    quizpage.innerHTML = `<h1>
+    let quizzPage = document.querySelector(".new-quizz");
+    quizzPage.classList.add("second-page");
+    quizzPage.classList.remove("first-page");
+    quizzPage.innerHTML = `<h1>
                             Crie suas perguntas
                         </h1>`
     for(let i=0; i<questionsLength ;i++){
-    quizpage.innerHTML += `<div>
+    quizzPage.innerHTML += `<div>
                                 <h2>Pergunta ${i+1}</h2>
                                 <input type="text" placeholder="Texto da pergunta">
                                 <input type="color" placeholder="Cor de fundo da pergunta">
@@ -84,18 +86,18 @@ function showSecondPage(){
                                 <input type="text" placeholder="URL da imagem 3">
                             </div>`
     }
-    console.log(createdQuiz);
-    quizpage.innerHTML += `<button onclick="saveSecondPageInfo(),showThirdPage()">
+    console.log(createdQuizz);
+    quizzPage.innerHTML += `<button onclick="saveSecondPageInfo(),showThirdPage()">
                                 Prosseguir para criar níveis
                             </button>`
 }
 
 function showThirdPage(){
-    let quizpage = document.querySelector(".new-quiz");
-    quizpage.classList.add("third-page");
-    quizpage.classList.remove("second-page");
-    quizpage.innerHTML = "";
-    quizpage.innerHTML +=`
+    let quizzPage = document.querySelector(".new-quiz");
+    quizzPage.classList.add("third-page");
+    quizzPage.classList.remove("second-page");
+    quizzPage.innerHTML = "";
+    quizzPage.innerHTML +=`
                         <h1>
                             Agora, decida os níveis
                         </h1>
@@ -117,10 +119,10 @@ function saveSecondPageInfo(){
 }
 
 function saveOneQuestionInfo(inputs){
-    newQuizQuestion[0].title = inputs[0].value;
-    newQuizQuestions[0].color = inputs[1].value;
+    newQuizzQuestion[0].title = inputs[0].value;
+    newQuizzQuestions[0].color = inputs[1].value;
     for(let j=0;cont<3;cont++){
-    newQuizAnswer[j].title = inputs[2+cont*2].value;
-    newQuizAnswer[j].image = inputs[3+cont*2].value;
+    newQuizzAnswer[j].title = inputs[2+cont*2].value;
+    newQuizzAnswer[j].image = inputs[3+cont*2].value;
     } 
 }
