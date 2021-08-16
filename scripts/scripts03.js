@@ -33,15 +33,18 @@ function createQuizzPage() {
                                 Comece pelo começo
                             </h1>
                             <div>
-                            <input classname="create-title" type="text" placeholder="Título do seu quizz">
-                            <input classname="create-image" type="text" placeholder="URL da imagem do seu quizz">
-                            <input classname="create-questions-qtty" type="number" placeholder="Quantidade de perguntas do quizz" min="3" max="10">
-                            <input classname="create-levels-qtty" type="number" placeholder="Quantidade de níveis do quizz" min="3" max="10">
+                            <form id="new-quizz-form" action="">
+                                <input classname="create-title" type="text" placeholder="Título do seu quizz">
+                                <input classname="create-image" type="text" placeholder="URL da imagem do seu quizz">
+                                <input classname="create-questions-qtty" type="number" placeholder="Quantidade de perguntas do quizz" min="3" max="10">
+                                <input classname="create-levels-qtty" type="number" placeholder="Quantidade de níveis do quizz" min="3" max="10">
+                            </form>
                             </div>
                             <button onclick="saveFirstPageInfo(),showSecondPage()"> 
                                 Prosseguir para criar perguntas
                             </button>
                         </div>`;
+    console.log(document.getElementById("new-quizz-form"));
 }
 
 function saveFirstPageInfo() {
