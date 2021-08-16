@@ -9,7 +9,6 @@ let localQuizzReplica = {
 };
 //---------------------------------------------------------
 
-/* -----------------------------------------------*/
 function printQuizzBanner(localQuizz) {
     let quizzBanner = document.querySelector(".quizz-banner");
     quizzBanner.innerHTML = '';

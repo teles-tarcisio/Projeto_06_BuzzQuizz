@@ -10,7 +10,7 @@ body {
 header {
     width: 100%;
     height: 69px;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background-color: #EC362D;
@@ -18,6 +18,7 @@ header {
     justify-items: center;
     align-items: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 10;
 }
 
 header h1 {
@@ -37,7 +38,7 @@ main {
     align-items: center;
 }
 
-.create-quizz {
+.user-quizzes {
     width: 100%;
     height: 181px;
     border: 1px dashed #D5D5D5;
@@ -48,7 +49,7 @@ main {
     align-items: center;
     background-color: #FAFAFA;
 }
-.create-quizz h1 {
+.user-quizzes h1 {
     width: 250px;
     height: 107px;
     margin: 35px auto 0 auto;
@@ -56,7 +57,7 @@ main {
     font-size: 20px;  
     text-align: center;  
 }
-.create-quizz button {
+.user-quizzes button {
     width: 151px;
     height: 40px;
     margin: 0 auto 33px auto;
@@ -73,7 +74,6 @@ main {
     margin: 77px auto 0 auto;
     display: flex;
     flex-direction: column;
-    border: 1px dotted blue;
     word-wrap: break-word;
 }
 .all-quizzes h1 {

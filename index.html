@@ -10,10 +10,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/desktop_styles01.css" />
-        <link rel="stylesheet" href="css/desktop_styles02-03.css" />
-        <link rel="stylesheet" href="css/Desktop_styles08-10.css">
-        <!-- <link rel="stylesheet" href="css/mobile_styles01.css"> -->
+        <link rel="stylesheet" href="css/styles-screen01.css" />
+        <link rel="stylesheet" href="css/styles-screen02.css" />
+        <link rel="stylesheet" href="css/styles-screen03.css" />
 
         <title>BuzzQuizz</title>
     </head>
@@ -26,39 +25,33 @@
         <div class="quizz-banner">
         </div>
 
-        <!-- <main class="hidden"> -->
         <main>
-            <div class="create-quizz">
-                <h1> Você não criou nenhum quizz ainda :( </h1>
-                <button onclick="createQuizzPage()"> Criar Quizz </button>
+            <div class="screen-01">
+                <div class="user-quizzes">
+                    <h1> Você não criou nenhum quizz ainda :( </h1>
+                    <button onclick="createQuizzPage()"> Criar Quizz </button>
+                </div>
+
+                <div class="all-quizzes">
+                    <h1> Todos os Quizzes </h1>
+                    <ul>
+
+                    </ul>s
+                </div>
             </div>
 
-            <div class="all-quizzes">
-                <h1> Todos os Quizzes </h1>
-                <ul>
-                    <li onclick="alert('launchQuizz, scripts02'), launchQuizz(this)">
-                        <div>
-                            <h2>[TESTLAUNCHQ]Acerte os personagens corretos dos Simpsons e prove seu amor!</h2>
-                        </div>
-                        <img src="/images/simpsons.png" alt="simpsons">
-                    </li>
+            <div class="screen-02">
+            </div>
 
-                    <li onclick="alert('launchResult, scripts02'), launchResult(this)">
-                        <div>
-                            <h2>[TESTLAUNCHR]O quanto você é de boas?</h2>
-                        </div>
-                        <img src="/images/sloth.png" alt="sloth">
-                    </li>
-
-                </ul>
+            <div class="screen-03">
             </div>
         </main>
 
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="scripts/scripts01.js"></script>
-        <script src="scripts/scripts02.js"></script>
-        <script src="scripts/scripts03.js"></script>
+        <script src="scripts/scripts-screen01.js"></script>
+        <script src="scripts/scripts-screen02.js"></script>
+        <script src="scripts/scripts-screen03.js"></script>
 
     </body>
 
