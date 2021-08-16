@@ -144,6 +144,7 @@ function createAnswersInEachQuestion(localQuizz) {
         for (j = 0; j < numberOfAnswers; j++) {
             let newListItem = document.createElement("li");
             newListItem.className = `answer`;
+            newListItem.setAttribute("onclick", 'alert("clicked an answer")');
                         
             let newAnswerImage = document.createElement("img");
             newAnswerImage.setAttribute("src", localQuizz.questions[i].answers[j].image);
@@ -158,11 +159,7 @@ function createAnswersInEachQuestion(localQuizz) {
             listInsideCard[i].innerHTML += "\n";
         }
     }
-    
-    document.querySelectorAll(".question-cards-list ul li.answer").addEventListener("click", testClick());    
-}
-function testClick() {
-    console.log("clicked nessa disgrassa");
+
 }
 
 function launchSelectedQuizz(response) {
