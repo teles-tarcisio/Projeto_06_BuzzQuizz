@@ -26,7 +26,7 @@
         </div>
 
         <main>
-            <div class="screen-01">
+            <div class="screen-01 hidden">
                 <div class="user-quizzes">
                     <h1> Você não criou nenhum quizz ainda :( </h1>
                     <button onclick="createQuizzPage()"> Criar Quizz </button>
@@ -40,7 +40,23 @@
                 </div>
             </div>
 
-            <div class="screen-02">
+            <div class="screen-02 hidden">
+                <div class="start-quizz-form">
+                    <h1>
+                        Comece pelo começo
+                    </h1>
+                    <form id="new-quizz-form" action="">
+                        <input classname="create-title" type="text" placeholder="Título do seu quizz">
+                        <input classname="create-image" type="text" placeholder="URL da imagem do seu quizz">
+                        <input classname="create-questions-qtty" type="number"
+                            placeholder="Quantidade de perguntas do quizz" min="3" max="10">
+                        <input classname="create-levels-qtty" type="number" placeholder="Quantidade de níveis do quizz"
+                            min="3" max="10">
+                    </form>
+                    <button onclick="saveFirstPageInfo(),showSecondPage()">
+                        Prosseguir para criar perguntas
+                    </button>
+                </div>
             </div>
 
             <div class="screen-03">
