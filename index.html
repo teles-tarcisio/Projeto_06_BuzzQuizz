@@ -26,7 +26,7 @@
         </div>
 
         <main>
-            <div class="screen-01">
+            <div class="screen-01 hidden">
                 <div class="user-quizzes">
                     <h1> Você não criou nenhum quizz ainda :( </h1>
                     <button onclick="createQuizzPage()"> Criar Quizz </button>
@@ -61,6 +61,26 @@
             </div>
 
             <div class="screen-03">
+                <div class="fill-quizz-form">
+                    <h1>
+                        Crie suas perguntas
+                    </h1>
+                    <form id="quizz-attributes-form" action="">
+                        <h2>Pergunta 1</h2>
+                        <input classname="question-text" type="text" placeholder="Texto da pergunta">
+                        <input classname="question-color" type="text" placeholder="Cor de fundo da pergunta">
+                        <h2>Resposta correta</h2>
+                        <input classname="correct-question" type="text" placeholder="Resposta correta">
+                        <input classname="correct-url" type="text" placeholder="URL da imagem">
+                        <h2>Respostas incorretas</h2>
+                        <input classname="incorrect-question1" type="text" placeholder="Resposta incorreta 1">
+                        <input classname="incorrect-url1" type="text" placeholder="URL da imagem 1">
+                        <input classname="incorrect-question2" type="text" placeholder="Resposta incorreta 2">
+                        <input classname="incorrect-url2" type="text" placeholder="URL da imagem 2">
+                        <input classname="incorrect-question3" type="text" placeholder="Resposta incorreta 3">
+                        <input classname="incorrect-url3" type="text" placeholder="URL da imagem 3">
+                    </form>
+                </div>
             </div>
         </main>
 

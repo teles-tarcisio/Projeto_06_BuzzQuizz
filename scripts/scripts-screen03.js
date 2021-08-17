@@ -33,7 +33,7 @@ function createQuizzPage() {
     mainDiv.querySelector(".screen-02").classList.remove("hidden");
 }
 
-function getNewQuizzInfo(htmlElement) {
+function getNewQuizzInfo() {
     /* quizz template for testing:
     {
         title: "tretaTitle",
@@ -48,9 +48,13 @@ function getNewQuizzInfo(htmlElement) {
     newCreatedQuizz.questions.length = targetForm.elements[2].value;
     newCreatedQuizz.levels.length = targetForm.elements[3].value;
     console.log(newCreatedQuizz);
+    document.querySelector(".screen-02").classList.add("hidden");
+    document.querySelector(".screen-03").classList.remove("hidden");
+    fillNewQuizzAttributes(newCreatedQuizz);
 }
 
-function showSecondPage() { 
+function fillNewQuizzAttributes(quizzObject) {
+
     let quizzPage = document.querySelector(".new-quizz");
     quizzPage.classList.add("second-page");
     quizzPage.classList.remove("first-page");
