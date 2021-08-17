@@ -27,45 +27,32 @@ let newQuizzLevel = {
 
 function createQuizzPage() {
     let mainDiv = document.querySelector("main");
-    mainDiv.innerHTML = "";
-    mainDiv.innerHTML += `<div class="new-quizz first-page">
-                            <h1>
-                                Comece pelo começo
-                            </h1>
-                            <div>
-                            <form id="new-quizz-form" action="">
-                                <input classname="create-title" type="text" placeholder="Título do seu quizz">
-                                <input classname="create-image" type="text" placeholder="URL da imagem do seu quizz">
-                                <input classname="create-questions-qtty" type="number" placeholder="Quantidade de perguntas do quizz" min="3" max="10">
-                                <input classname="create-levels-qtty" type="number" placeholder="Quantidade de níveis do quizz" min="3" max="10">
-                            </form>
-                            </div>
-                            <button onclick="saveFirstPageInfo(),showSecondPage()"> 
-                                Prosseguir para criar perguntas
-                            </button>
-                        </div>`;
-    console.log(document.getElementById("new-quizz-form"));
+    console.log(mainDiv.innerHTML);
+
+    mainDiv.querySelector(".screen-01").classList.add("hidden");
+    console.log(mainDiv.parentElement.innerHTML);
+
+    mainDiv.querySelector(".screen-02").classList.remove("hidden");
+    console.log(mainDiv.parentElement.innerHTML);
+
 }
 
-function saveFirstPageInfo() {
-    /*
-    let target = document.querySelector("main .create-title");
-    newCreatedQuizz.title = target.value;
-
-    target = document.querySelector("main .create-image");
-    newCreatedQuizz.image = target.value;
-
-    target = document.querySelector("main .create-questions-qtty");
-    newCreatedQuizz.questions.length = target.value;
-
-    target = document.querySelector("main .create-levels-qtty");
-    newCreatedQuizz.levels.length = target.value;
+function getNewQuizzInfo(htmlElement) {
+    /* quizz template for testing:
+    {
+        title: "tretaTitle",
+        image: "https://images-na.ssl-images-amazon.com/images/I/71k5kfdB9KL.png",
+        questions: [ {}, {}, {} ],
+        levels: [ {}, {}, {} ]
+    }
     */
-
-    console.log("created: ", newCreatedQuizz);
+    let targetForm = document.querySelector(".screen-02 form");
+    newCreatedQuizz.title = targetForm.elements[0].value;
+    newCreatedQuizz.image = targetForm.elements[1].value;
+    console.log(newCreatedQuizz);
 }
 
-function showSecondPage(){ 
+function showSecondPage() { 
     let quizzPage = document.querySelector(".new-quizz");
     quizzPage.classList.add("second-page");
     quizzPage.classList.remove("first-page");
@@ -96,7 +83,7 @@ function showSecondPage(){
 }
 
 function showThirdPage(){
-    let quizzPage = document.querySelector(".new-quiz");
+    let quizzPage = document.querySelector(".new-quizz");
     quizzPage.classList.add("third-page");
     quizzPage.classList.remove("second-page");
     quizzPage.innerHTML = "";
@@ -116,16 +103,9 @@ function showThirdPage(){
 }
 
 function saveSecondPageInfo(){
-    let inputs = Array.from(document.querySelectorAll("input"));
-    console.log(inputs);
-    saveOneQuestionInfo(inputs);
+    //
 }
 
 function saveOneQuestionInfo(inputs){
-    newQuizzQuestion[0].title = inputs[0].value;
-    newQuizzQuestions[0].color = inputs[1].value;
-    for(let j=0;cont<3;cont++){
-    newQuizzAnswer[j].title = inputs[2+cont*2].value;
-    newQuizzAnswer[j].image = inputs[3+cont*2].value;
-    } 
+    //
 }

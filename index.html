@@ -26,7 +26,7 @@
         </div>
 
         <main>
-            <div class="screen-01 hidden">
+            <div class="screen-01">
                 <div class="user-quizzes">
                     <h1> Você não criou nenhum quizz ainda :( </h1>
                     <button onclick="createQuizzPage()"> Criar Quizz </button>
@@ -53,7 +53,8 @@
                         <input classname="create-levels-qtty" type="number" placeholder="Quantidade de níveis do quizz"
                             min="3" max="10">
                     </form>
-                    <button onclick="saveFirstPageInfo(),showSecondPage()">
+                    <!-- <button onclick="saveFirstPageInfo(),showSecondPage()"> -->
+                    <button onclick="alert('proceed to create quizz'), getNewQuizzInfo()">
                         Prosseguir para criar perguntas
                     </button>
                 </div>
