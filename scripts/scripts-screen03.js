@@ -45,6 +45,8 @@ function getNewQuizzInfo(htmlElement) {
     let targetForm = document.querySelector(".screen-02 form");
     newCreatedQuizz.title = targetForm.elements[0].value;
     newCreatedQuizz.image = targetForm.elements[1].value;
+    newCreatedQuizz.questions.length = targetForm.elements[2].value;
+    newCreatedQuizz.levels.length = targetForm.elements[3].value;
     console.log(newCreatedQuizz);
 }
 
