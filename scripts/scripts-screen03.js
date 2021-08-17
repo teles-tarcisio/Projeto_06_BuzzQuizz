@@ -27,14 +27,10 @@ let newQuizzLevel = {
 
 function createQuizzPage() {
     let mainDiv = document.querySelector("main");
-    console.log(mainDiv.innerHTML);
-
+    
     mainDiv.querySelector(".screen-01").classList.add("hidden");
-    console.log(mainDiv.parentElement.innerHTML);
-
+    
     mainDiv.querySelector(".screen-02").classList.remove("hidden");
-    console.log(mainDiv.parentElement.innerHTML);
-
 }
 
 function getNewQuizzInfo(htmlElement) {

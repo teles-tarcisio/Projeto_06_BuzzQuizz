@@ -130,21 +130,15 @@ function randomComparator() {
 function randomizeQuizz(quizzObject) {    
     quizzObject.questions = quizzObject.questions.sort(randomComparator);
     for (i = 0; i < quizzObject.questions.length; i++) {
-        console.log(quizzObject.questions[i].answers);
         quizzObject.questions[i].answers = quizzObject.questions[i].answers.sort(randomComparator);
-        console.log(quizzObject.questions[i].answers);
     }
 }
 
 function launchSelectedQuizz(response) {
-    console.log("server responded: \n", response.data);
-
     localQuizzReplica = response.data;
-    console.log("received quizz: ", localQuizzReplica.questions);
-    
+       
     randomizeQuizz(localQuizzReplica);
-    console.log("randomized quizz: ", localQuizzReplica.questions);
-                
+                    
     printQuizzBanner(localQuizzReplica);
 
     createListOfCards(localQuizzReplica);
